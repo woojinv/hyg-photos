@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Grid, Header, Image, Form, Segment, Button } from "semantic-ui-react";
 
 export default function SignUpPage(props) {
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [state, setState] = useState({
     username: "",
@@ -24,10 +25,10 @@ export default function SignUpPage(props) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(state, "<- this is state");
-
     try {
       await userService.signup(state);
+      props.handleSignUpOrLogin();
+      navigate("/");
     } catch (err) {
       console.log(
         err.message,
