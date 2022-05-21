@@ -15,11 +15,29 @@ function App() {
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
+    console.log(user, "<- this is user");
   }
 
   function handleLogout() {
     userService.logout();
     setUser(null);
+  }
+
+  if (user) {
+    return (
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/events"
+          element={<EventsPage user={user} handleLogout={handleLogout} />}
+        />
+        <Route
+          path="/create"
+          element={<CreatePage user={user} handleLogout={handleLogout} />}
+        />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    );
   }
 
   return (

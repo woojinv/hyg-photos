@@ -8,6 +8,7 @@ export default function CreatePage({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <PageHeader user={user} handleLogout={handleLogout} />
+          <h1>This is the Create Event Page</h1>
         </Grid.Column>
       </Grid.Row>
     </Grid>
