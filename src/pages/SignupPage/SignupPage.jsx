@@ -21,8 +21,23 @@ export default function SignUpPage(props) {
     });
   }
 
-  function handleSubmit() {
-    console.log("handleSubmit function");
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    for (let fieldName in state) {
+      formData.append(fieldName, state[fieldName]);
+    }
+
+    try {
+      console.log(formData.forEach((item) => console.log(item)));
+      await userService.signup(formData);
+    } catch (err) {
+      console.log(
+        err.message,
+        "<- this is err from handleSubmit on SignupPage"
+      );
+      setError(err.message);
+    }
   }
 
   return (

@@ -8,7 +8,7 @@ function signup(user) {
   return (
     fetch(BASE_URL + "signup", {
       method: "POST",
-      headers: new Headers({ "Content-Type": "application/json" }),
+      // headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify(user),
     })
       .then((res) => {
