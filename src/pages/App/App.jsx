@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import LandingPage from "../LandingPage/LandingPage";
+import EventsPage from "../EventsPage/EventsPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
@@ -22,7 +24,8 @@ function App() {
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<h1>This is Home Page!</h1>} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/events" element={<EventsPage />} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

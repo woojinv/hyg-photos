@@ -45,7 +45,7 @@ export default function LoginPage(props) {
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
           <Image src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png" />
-          Log-in to you account
+          Log-in to your account
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
