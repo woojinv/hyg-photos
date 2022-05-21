@@ -5,16 +5,25 @@ import userService from "../../utils/userService";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage(props) {
+  const [error, setError] = useState("");
+  const [state, setState] = useState({
+    username: "",
+    email: "",
+    password: "",
+    passwordConf: "",
+  });
+
+  function handleChange(e) {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  }
   return (
-    <>
-      <h1>Signup PAGE</h1>
-      <ul>
-        <li>Read the User Model, You can change it to fit your needs</li>
-        <li>
-          Make sure you read the Signup up func in the User Controller, to know
-          how it is setup to find the user!
-        </li>
-      </ul>
-    </>
+    <Grid
+      textAlign="center"
+      style={{ height: "100vh" }}
+      verticalAlign="middle"
+    ></Grid>
   );
 }
