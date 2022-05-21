@@ -2,7 +2,7 @@ import React from "react";
 import { Segment, Header, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default function PageHeader({ user }) {
+export default function PageHeader({ user, handleLogout }) {
   return (
     <Segment>
       <Header>
@@ -14,7 +14,13 @@ export default function PageHeader({ user }) {
         </Link>
         <Link to="/events">Events</Link>
         <br />
-        <Link to="/login">Log In</Link>
+        {user ? (
+          <Link to="" onClick={handleLogout}>
+            Log Out
+          </Link>
+        ) : (
+          <Link to="/login">Log In</Link>
+        )}
       </Header>
     </Segment>
   );
