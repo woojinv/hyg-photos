@@ -13,7 +13,7 @@ module.exports = {
 
 async function signup(req, res) {
   console.log("hitting signup router");
-  console.log(req.body, "<- this is req.body", req.file, "<- this is req.file");
+  console.log(req.body, "<- this is req.body");
   const user = new User(req.body);
   try {
     await user.save();

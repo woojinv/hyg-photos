@@ -23,14 +23,11 @@ export default function SignUpPage(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    for (let fieldName in state) {
-      formData.append(fieldName, state[fieldName]);
-    }
+
+    console.log(state, "<- this is state");
 
     try {
-      console.log(formData.forEach((item) => console.log(item)));
-      await userService.signup(formData);
+      await userService.signup(state);
     } catch (err) {
       console.log(
         err.message,
