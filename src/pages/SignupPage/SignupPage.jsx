@@ -14,6 +14,8 @@ export default function SignUpPage(props) {
     passwordConf: "",
   });
 
+  const [selectedFile, setSelectedFile] = useState("");
+
   function handleChange(e) {
     setState({
       ...state,
@@ -21,8 +23,9 @@ export default function SignUpPage(props) {
     });
   }
 
-  function handleFileInput() {
-    console.log("handleFileInput function");
+  function handleFileInput(e) {
+    console.log(e.target.files, "<- this is e.target.files");
+    setSelectedFile(e.target.files[0]);
   }
 
   function handleSubmit() {
