@@ -11,7 +11,7 @@ module.exports = {
   login,
 };
 
-function signup(req, res) {
+async function signup(req, res) {
   console.log(req.body, req.file);
 
   //////////////////////////////////////////////////////////////////////////////////
