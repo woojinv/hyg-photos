@@ -29,7 +29,10 @@ function App() {
         path="/events"
         element={<EventsPage user={user} handleLogout={handleLogout} />}
       />
-      <Route path="/create" element={<CreatePage />} />
+      <Route
+        path="/create"
+        element={<CreatePage user={user} handleLogout={handleLogout} />}
+      />
       <Route
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

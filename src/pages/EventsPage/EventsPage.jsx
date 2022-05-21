@@ -2,7 +2,7 @@ import React from "react";
 import PageHeader from "../../components/Header/Header";
 import { Grid } from "semantic-ui-react";
 
-export default function ({ user, handleLogout }) {
+export default function EventsPage({ user, handleLogout }) {
   return (
     <Grid centered>
       <Grid.Row>
