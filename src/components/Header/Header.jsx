@@ -15,9 +15,13 @@ export default function PageHeader({ user, handleLogout }) {
         <Link to="/events">Events</Link>
         <br />
         {user ? (
-          <Link to="" onClick={handleLogout}>
-            Log Out
-          </Link>
+          <>
+            <Link to="">Create an Event</Link>
+            <br />
+            <Link to="" onClick={handleLogout}>
+              Log Out
+            </Link>
+          </>
         ) : (
           <Link to="/login">Log In</Link>
         )}
