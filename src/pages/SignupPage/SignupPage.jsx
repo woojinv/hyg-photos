@@ -3,7 +3,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
 import { useNavigate } from "react-router-dom";
-import { Grid, Header, Image, Form } from "semantic-ui-react";
+import { Grid, Header, Image, Form, Segment, Button } from "semantic-ui-react";
 
 export default function SignUpPage(props) {
   const [error, setError] = useState("");
@@ -21,9 +21,14 @@ export default function SignUpPage(props) {
     });
   }
 
+  function handleFileInput() {
+    console.log("handleFileInput function");
+  }
+
   function handleSubmit() {
     console.log("handleSubmit function");
   }
+
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
@@ -56,7 +61,27 @@ export default function SignUpPage(props) {
               onChange={handleChange}
               required
             />
+            <Form.Input
+              name="passwordConf"
+              type="password"
+              placeholder="Confirm Password"
+              value={state.passwordConf}
+              onChange={handleChange}
+              required
+            />
+            <Form.Field>
+              <Form.Input
+                type="file"
+                name="photo"
+                placeholder="upload profile picture"
+                onChange={handleFileInput}
+              />
+            </Form.Field>
+            <Button type="submit" className="btn">
+              Signup
+            </Button>
           </Segment>
+          {error ? <ErrorMessage error={error} /> : null}
         </Form>
       </Grid.Column>
     </Grid>
