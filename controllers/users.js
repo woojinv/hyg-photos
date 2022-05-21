@@ -12,39 +12,16 @@ module.exports = {
 };
 
 async function signup(req, res) {
-  console.log(
-    req.body,
-    " <- req.body is users signup",
-    req.file,
-    "<- this is req.file"
-  );
-
-  //////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////
-
-  // FilePath unique name to be saved to our bucket
-  const filePath = `${uuidv4()}/${req.file.originalname}`;
-  const params = {
-    Bucket: process.env.BUCKET_NAME,
-    Key: filePath,
-    Body: req.file.buffer,
-  };
-  //bucket name goes where hyg-photos is
-  //////////////////////////////////////////////////////////////////////////////////
-  s3.upload(params, async function (err, data) {
-    console.log(data, "from aws"); // data.Location is our photoUrl that exists on aws
-    const user = new User({ ...req.body, photoUrl: data.Location });
-    try {
-      await user.save();
-      const token = createJWT(user); // user is the payload so this is the object in our jwt
-      res.json({ token });
-    } catch (err) {
-      // Probably a duplicate email
-      res.status(400).json(err);
-    }
-  });
-  //////////////////////////////////////////////////////////////////////////////////
+  const user = new User(req.body);
+  try {
+    await user.save();
+    // first delete data that should not be in token
+    const token = createJWT(user);
+    res.json({ token });
+  } catch (err) {
+    // probably a duplicate email
+    res.status(400).json(err);
+  }
 }
 
 async function login(req, res) {

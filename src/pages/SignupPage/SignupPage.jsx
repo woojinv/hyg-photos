@@ -14,18 +14,11 @@ export default function SignUpPage(props) {
     passwordConf: "",
   });
 
-  const [selectedFile, setSelectedFile] = useState("");
-
   function handleChange(e) {
     setState({
       ...state,
       [e.target.name]: e.target.value,
     });
-  }
-
-  function handleFileInput(e) {
-    console.log(e.target.files, "<- this is e.target.files");
-    setSelectedFile(e.target.files[0]);
   }
 
   function handleSubmit() {
@@ -72,14 +65,7 @@ export default function SignUpPage(props) {
               onChange={handleChange}
               required
             />
-            <Form.Field>
-              <Form.Input
-                type="file"
-                name="photo"
-                placeholder="upload profile picture"
-                onChange={handleFileInput}
-              />
-            </Form.Field>
+
             <Button type="submit" className="btn">
               Signup
             </Button>
