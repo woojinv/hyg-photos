@@ -5,3 +5,5 @@ const multer = require("multer");
 const upload = multer();
 
 router.post("/", upload.single("photo"), eventsCtrl.create);
+
+module.exports = router;
