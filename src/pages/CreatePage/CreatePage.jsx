@@ -30,9 +30,7 @@ export default function CreatePage({ user, handleLogout }) {
     }
 
     try {
-      setLoading(true);
-      const data = await eventsAPI.create(formData);
-      console.log(data, "<- this is the newly created event");
+      eventsAPI.create(formData);
       navigate("/events");
     } catch (err) {
       setError(err.message);
