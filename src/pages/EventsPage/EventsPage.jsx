@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
+import EventGallery from "../../components/EventGallery/EventGallery";
 import { Grid } from "semantic-ui-react";
 import * as eventsAPI from "../../utils/eventApi";
 
@@ -32,6 +33,7 @@ export default function EventsPage({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <h1>This is the Events Page</h1>
+          <EventGallery />
         </Grid.Column>
       </Grid.Row>
     </Grid>
