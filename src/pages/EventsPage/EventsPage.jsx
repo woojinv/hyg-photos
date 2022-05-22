@@ -27,6 +27,10 @@ export default function EventsPage({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <PageHeader user={user} handleLogout={handleLogout} />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column>
           <h1>This is the Events Page</h1>
         </Grid.Column>
       </Grid.Row>
