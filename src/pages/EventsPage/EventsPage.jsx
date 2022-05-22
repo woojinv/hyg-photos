@@ -13,6 +13,8 @@ export default function EventsPage({ user, handleLogout }) {
     try {
       const data = await eventsAPI.getAll();
       console.log(data, "<- this is data from getEvents");
+      setEvents(data.events);
+      console.log(events);
     } catch (err) {
       console.log(err.message, "<- this is error from getEvents");
       setError(err.message);
@@ -33,7 +35,7 @@ export default function EventsPage({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <h1>This is the Events Page</h1>
-          <EventGallery />
+          <EventGallery events={events} />
         </Grid.Column>
       </Grid.Row>
     </Grid>
