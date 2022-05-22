@@ -5,8 +5,8 @@ export default function EventGallery({ events }) {
   return (
     <div className="EventGallery">
       <h1>This is the Event Gallery</h1>
-      {events.map((event) => {
-        return <EventCard event={event} key={event._id} />;
+      {events.map((event, i) => {
+        return <EventCard event={event} key={i} />;
       })}
     </div>
   );

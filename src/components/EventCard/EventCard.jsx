@@ -1,5 +1,6 @@
 import React from "react";
+import { Card, Icon, Image } from "semantic-ui-react";
 
-export default function EventCard(props) {
-  return <h1>This is an Event Card</h1>;
+export default function EventCard({ event }) {
+  return <Image src={event.photoUrl} />;
 }
