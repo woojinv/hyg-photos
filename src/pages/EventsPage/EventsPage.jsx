@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
 import { Grid } from "semantic-ui-react";
+import * as eventsAPI from "../../utils/eventApi";
 
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
@@ -9,7 +10,7 @@ export default function EventsPage({ user, handleLogout }) {
 
   async function getEvents() {
     try {
-      console.log("getEvents hit");
+      const data = await eventsAPI.getAll();
     } catch (err) {
       console.log(err.message, "<- this is error from getEvents");
       setError(err.message);
