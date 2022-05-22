@@ -14,7 +14,6 @@ export default function EventsPage({ user, handleLogout }) {
       const data = await eventsAPI.getAll();
       console.log(data, "<- this is data from getEvents");
       setEvents(data.events);
-      console.log(events);
     } catch (err) {
       console.log(err.message, "<- this is error from getEvents");
       setError(err.message);
