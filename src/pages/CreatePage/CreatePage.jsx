@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
-import { Form, Grid, Segment } from "semantic-ui-react";
+import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
 export default function CreatePage({ user, handleLogout }) {
@@ -56,18 +57,46 @@ export default function CreatePage({ user, handleLogout }) {
               <Form.Input
                 type="text"
                 name="title"
-                placeholder="title"
+                placeholder="Title"
                 value={state.title}
                 onChange={handleChange}
                 required
               />
               <Form.TextArea
-                label="description"
+                label="Description"
                 name="description"
-                placeholder="add a description about this event"
+                placeholder="Add a brief description of your event or details others may find useful"
                 onChange={handleChange}
               />
+              <Form.Input
+                type="text"
+                name="location"
+                placeholder="Location"
+                value={state.location}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                type="text"
+                name="date"
+                placeholder="Date"
+                value={state.date}
+                onChange={handleChange}
+                required
+              />
+              <Form.Field>
+                <Form.Input
+                  type="file"
+                  name="photo"
+                  placeholder="upload a coverphoto"
+                  onChange={handleFileInput}
+                />
+              </Form.Field>
+              <Button type="submit" className="btn">
+                Submit
+              </Button>
             </Segment>
+            {error ? <ErrorMessage error={error} /> : null}
           </Form>
         </Grid.Column>
       </Grid.Row>
