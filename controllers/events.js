@@ -6,6 +6,7 @@ const s3 = new S3();
 
 module.exports = {
   create,
+  index,
 };
 
 async function create(req, res) {
@@ -40,7 +41,7 @@ async function create(req, res) {
   }
 }
 
-async function index() {
+async function index(req, res) {
   try {
     const events = await Event.find({}).populate("user").exec();
     res.status(200).json({ events });
