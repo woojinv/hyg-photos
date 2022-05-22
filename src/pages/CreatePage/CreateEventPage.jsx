@@ -9,7 +9,6 @@ import * as eventsAPI from "../../utils/eventApi";
 export default function CreatePage({ user, handleLogout }) {
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     title: "",

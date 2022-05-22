@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../LandingPage/LandingPage";
 import EventsPage from "../EventsPage/EventsPage";
-import CreatePage from "../CreatePage/CreatePage";
+import CreateEventPage from "../CreatePage/CreateEventPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
@@ -33,7 +33,7 @@ function App() {
         />
         <Route
           path="/create"
-          element={<CreatePage user={user} handleLogout={handleLogout} />}
+          element={<CreateEventPage user={user} handleLogout={handleLogout} />}
         />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>

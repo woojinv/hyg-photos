@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
 import { Grid } from "semantic-ui-react";
 
 export default function EventsPage({ user, handleLogout }) {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  async function getEvents() {
+    try {
+      console.log("getEvents hit");
+    } catch (err) {
+      console.log(err.message, "<- this is error from getEvents");
+      setError(err.message);
+    }
+  }
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
   return (
     <Grid centered>
       <Grid.Row>
