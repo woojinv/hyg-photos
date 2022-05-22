@@ -4,9 +4,12 @@ import PageHeader from "../../components/Header/Header";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
+import * as eventsAPI from "../../utils/eventApi";
+
 export default function CreatePage({ user, handleLogout }) {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     title: "",
@@ -21,9 +24,16 @@ export default function CreatePage({ user, handleLogout }) {
     e.preventDefault();
     console.log("handleSubmit function hit");
 
-    // will need to adjust for form data
+    const formData = new FormData();
+    formData.append("photo", selectedFile);
+
+    for (let fieldName in state) {
+      formData.append(fieldName, state[fieldName]);
+    }
 
     try {
+      setLoading(true);
+      const data = await eventsAPI.create(formData);
     } catch (err) {
       setError(err.message);
       console.log(err.message, "<- this is error message from handleSubmit");
