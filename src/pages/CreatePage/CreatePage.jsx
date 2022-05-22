@@ -22,11 +22,9 @@ export default function CreatePage({ user, handleLogout }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log("handleSubmit function hit");
 
     const formData = new FormData();
     formData.append("photo", selectedFile);
-
     for (let fieldName in state) {
       formData.append(fieldName, state[fieldName]);
     }
@@ -34,6 +32,8 @@ export default function CreatePage({ user, handleLogout }) {
     try {
       setLoading(true);
       const data = await eventsAPI.create(formData);
+      console.log(data, "<- this is the newly created event");
+      navigate("/events");
     } catch (err) {
       setError(err.message);
       console.log(err.message, "<- this is error message from handleSubmit");
