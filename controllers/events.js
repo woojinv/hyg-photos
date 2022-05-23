@@ -8,6 +8,7 @@ module.exports = {
   create,
   index,
   getEvent,
+  deleteEvent,
 };
 
 async function create(req, res) {
@@ -56,4 +57,8 @@ async function getEvent(req, res) {
     console.log(err, "<- this is err from getEvent controller");
     res.status(400).json({ err });
   }
+}
+
+async function deleteEvent(req, res) {
+  console.log(req.params.eventId, "<- this is req.params.eventId");
 }
