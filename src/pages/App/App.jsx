@@ -10,9 +10,12 @@ import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 
 function App() {
-  const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
-  // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
-  // this  const token = createJWT(user); // where user was the document we created from mongo
+  const [user, setUser] = useState(userService.getUser());
+  const [events, setEvents] = useState([]);
+
+  async function handleCreateEvent(e) {
+    console.log(e.target, "Successfully lifting this function");
+  }
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
@@ -34,7 +37,13 @@ function App() {
         />
         <Route
           path="/create"
-          element={<CreateEventPage user={user} handleLogout={handleLogout} />}
+          element={
+            <CreateEventPage
+              user={user}
+              handleLogout={handleLogout}
+              handleSubmit={handleCreateEvent}
+            />
+          }
         />
         <Route
           path="/:event"

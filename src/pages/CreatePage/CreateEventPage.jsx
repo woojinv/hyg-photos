@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import * as eventsAPI from "../../utils/eventApi";
 
-export default function CreatePage({ user, handleLogout }) {
+export default function CreatePage({ user, handleLogout, handleSubmit }) {
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
@@ -19,23 +19,23 @@ export default function CreatePage({ user, handleLogout }) {
 
   const [selectedFile, setSelectedFile] = useState("");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("photo", selectedFile);
-    for (let fieldName in state) {
-      formData.append(fieldName, state[fieldName]);
-    }
+  //   const formData = new FormData();
+  //   formData.append("photo", selectedFile);
+  //   for (let fieldName in state) {
+  //     formData.append(fieldName, state[fieldName]);
+  //   }
 
-    try {
-      eventsAPI.create(formData);
-      navigate("/events");
-    } catch (err) {
-      setError(err.message);
-      console.log(err.message, "<- this is error message from handleSubmit");
-    }
-  }
+  //   try {
+  //     eventsAPI.create(formData);
+  //     navigate("/events");
+  //   } catch (err) {
+  //     setError(err.message);
+  //     console.log(err.message, "<- this is error message from handleSubmit");
+  //   }
+  // }
 
   function handleChange(e) {
     setState({
