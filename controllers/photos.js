@@ -7,11 +7,6 @@ const s3 = new S3();
 module.exports = { create, index };
 
 async function create(req, res) {
-  console.log("create controller for photos hit");
-  console.log(req.body, "<- this is req.body");
-  console.log(req.user, "<- this is req.user");
-  console.log(req.file, "<- this is req.file");
-
   try {
     const event = await Event.findOne({ title: req.body.eventTitle });
     const filePath = `${uuidv4()}/${req.file.originalname}`;
@@ -28,10 +23,7 @@ async function create(req, res) {
         event: event,
         eventTitle: req.body.eventTitle,
       });
-      console.log(
-        photo,
-        "<- this is the created photo from the create controller"
-      );
+
       await photo.populate("user");
       await photo.populate("event");
       res.status(201).json({ photo: photo });
@@ -43,7 +35,6 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
-  console.log(req.params, "<- this is req");
   try {
     const photos = await Photo.find({ eventTitle: req.params.eventTitle });
     res.status(200).json({ photos });
@@ -51,5 +42,4 @@ async function index(req, res) {
     console.log(err);
     res.json({ data: err });
   }
-  console.log("index controller hit");
 }

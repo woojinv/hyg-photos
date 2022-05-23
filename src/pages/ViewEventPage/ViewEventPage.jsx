@@ -35,6 +35,7 @@ export default function ViewEventPage({ user, handleLogout }) {
       setLoading(true);
       const data = await photosAPI.create(photo);
       console.log(data, "<- this is data from handleADdPhoto");
+      setLoading(false);
     } catch (err) {
       console.log(err, "<- this is err from handleAddPhoto");
       setError(err.message);
@@ -42,12 +43,12 @@ export default function ViewEventPage({ user, handleLogout }) {
   }
 
   async function getPhotos() {
-    console.log("getPhotos hit");
     try {
       setLoading(true);
       const data = await photosAPI.getAll(eventTitle);
       console.log(data, "<- this is data from getPhotos");
-      setPhotos(data.photos);
+      setPhotos(data?.photos);
+      setLoading(false);
     } catch (err) {
       console.log(err.message, "<- this is err from getPhotos");
       setError(err.message);
@@ -89,7 +90,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         photoUrl={event.photoUrl}
         id={event._id}
       />
-      <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event.title} />
+      <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
       <PhotoGallery photos={photos} />
     </>
   );

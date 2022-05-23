@@ -12,8 +12,6 @@ module.exports = {
 };
 
 async function signup(req, res) {
-  console.log("hitting signup router");
-  console.log(req.body, "<- this is req.body");
   const user = new User(req.body);
   try {
     await user.save();
@@ -29,7 +27,6 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
-    console.log(user, " this user in login");
     if (!user) return res.status(401).json({ err: "Please try again" });
     // had to update the password from req.body.pw, to req.body password
     user.comparePassword(req.body.password, (err, isMatch) => {

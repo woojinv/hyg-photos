@@ -11,9 +11,6 @@ module.exports = {
 };
 
 async function create(req, res) {
-  console.log("create controller hit");
-  console.log(req.body, req.file, req.user);
-
   try {
     const filePath = `${uuidv4()}/${req.file.originalname}`;
     const params = {
@@ -31,7 +28,6 @@ async function create(req, res) {
         date: req.body.date,
         photoUrl: data.Location,
       });
-      console.log(event, "<- this is event");
       await event.populate("user");
 
       res.status(201).json({ event: event });
@@ -52,7 +48,6 @@ async function index(req, res) {
 }
 
 async function getEvent(req, res) {
-  console.log(req.params, "getEvent controller hit!");
   try {
     const event = await Event.findOne({ title: req.params.eventTitle });
     if (!event) return res.status(404).json({ err: "Event not found" });
