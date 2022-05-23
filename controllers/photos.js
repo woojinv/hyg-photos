@@ -26,6 +26,7 @@ async function create(req, res) {
         photoUrl: data.Location,
         user: req.user,
         event: event,
+        eventTitle: req.body.eventTitle,
       });
       console.log(
         photo,
@@ -42,5 +43,13 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
+  console.log(req.params, "<- this is req");
+  try {
+    const photos = await Photo.find({ eventTitle: req.params.eventTitle });
+    console.log(photos, "<- this is photos from the index controller");
+  } catch (err) {
+    console.log(err);
+    res.json({ data: err });
+  }
   console.log("index controller hit");
 }
