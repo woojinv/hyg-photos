@@ -4,6 +4,7 @@ import "./App.css";
 import LandingPage from "../LandingPage/LandingPage";
 import EventsPage from "../EventsPage/EventsPage";
 import CreateEventPage from "../CreatePage/CreateEventPage";
+import ViewEventPage from "../ViewEventPage/ViewEventPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
@@ -35,6 +36,7 @@ function App() {
           path="/create"
           element={<CreateEventPage user={user} handleLogout={handleLogout} />}
         />
+        <Route path="/:event" element={<ViewEventPage />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     );
