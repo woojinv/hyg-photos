@@ -11,11 +11,6 @@ import userService from "../../utils/userService";
 
 function App() {
   const [user, setUser] = useState(userService.getUser());
-  const [events, setEvents] = useState([]);
-
-  async function handleCreateEvent(e) {
-    console.log(e.target, "Successfully lifting this function");
-  }
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
@@ -37,13 +32,7 @@ function App() {
         />
         <Route
           path="/create"
-          element={
-            <CreateEventPage
-              user={user}
-              handleLogout={handleLogout}
-              handleSubmit={handleCreateEvent}
-            />
-          }
+          element={<CreateEventPage user={user} handleLogout={handleLogout} />}
         />
         <Route
           path="/:event"
