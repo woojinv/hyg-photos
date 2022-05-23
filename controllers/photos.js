@@ -46,7 +46,7 @@ async function index(req, res) {
   console.log(req.params, "<- this is req");
   try {
     const photos = await Photo.find({ eventTitle: req.params.eventTitle });
-    console.log(photos, "<- this is photos from the index controller");
+    res.status(200).json({ photos });
   } catch (err) {
     console.log(err);
     res.json({ data: err });
