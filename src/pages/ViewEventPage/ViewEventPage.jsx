@@ -7,10 +7,11 @@ import PhotoGallery from "../../components/PhotoGallery/PhotoGallery";
 import * as eventsAPI from "../../utils/eventApi";
 
 export default function ViewEventPage({ user, handleLogout }) {
-  const { title } = useParams();
+  const { event } = useParams();
   async function getEvent() {
     console.log("getEvent hit");
-    const data = await eventsAPI.getEvent(title);
+    console.log(event, "<- this is ttile from getEvent in ViewEventpage");
+    const data = await eventsAPI.getEvent(event);
   }
 
   useEffect(() => {
