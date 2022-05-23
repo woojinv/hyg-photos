@@ -43,6 +43,14 @@ export default function ViewEventPage({ user, handleLogout }) {
 
   async function getPhotos() {
     console.log("getPhotos hit");
+    try {
+      setLoading(true);
+      const data = await photosAPI.getAll(eventTitle);
+      console.log(data, "<- this is data from getPhotos");
+    } catch (err) {
+      console.log(err.message, "<- this is err from getPhotos");
+      setError(err.message);
+    }
   }
 
   useEffect(() => {

@@ -14,3 +14,11 @@ export async function create(photo) {
   if (res.ok) return res.json();
   throw new Error("Bad Credentials! CHECK THE SERVER TERMINAL");
 }
+
+export async function getAll(eventTitle) {
+  console.log("getAll hit");
+
+  const res = await fetch(`${BASE_URL}/events/${eventTitle}/photos`);
+  if (res.ok) return res.json();
+  throw new Error("Bad credentials! check the server terminal");
+}

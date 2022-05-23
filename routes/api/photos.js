@@ -9,5 +9,6 @@ router.post(
   upload.single("photo"),
   photosCtrl.create
 );
+router.get("/events/:eventTitle/photos", photosCtrl.index);
 
 module.exports = router;
