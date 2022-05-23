@@ -26,7 +26,14 @@ export default function ViewEventPage({ user, handleLogout }) {
     <>
       <Header user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>;
-      <EventInfo />
+      <EventInfo
+        title={event.title}
+        description={event.description}
+        location={event.location}
+        date={event.date}
+        photoUrl={event.photoUrl}
+        id={event._id}
+      />
       <PhotoGallery />
     </>
   );
