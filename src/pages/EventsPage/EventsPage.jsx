@@ -24,6 +24,12 @@ export default function EventsPage({ user, handleLogout }) {
 
   async function deleteEvent(eventId) {
     console.log(eventId, "<- this is the eventId");
+    try {
+      const data = await eventsAPI.deleteEvent(eventId);
+    } catch (err) {
+      console.log(err.message, "<- this is err from eventId");
+      setError(err.message);
+    }
   }
 
   useEffect(() => {
