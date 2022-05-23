@@ -19,3 +19,7 @@ export async function getAll() {
   if (res.ok) return res.json();
   throw new Error("bad credentials! CHECK THE SERVER TERMINAL");
 }
+
+export async function getEvent() {
+  console.log("getEvent hit from eventAPI.js");
+}
