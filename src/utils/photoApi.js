@@ -19,3 +19,7 @@ export async function getAll(eventTitle) {
   if (res.ok) return res.json();
   throw new Error("Bad credentials! check the server terminal");
 }
+
+export async function deletePhoto(photoId) {
+  console.log(photoId, "<- this is photoId from deletePhoto");
+}
