@@ -18,8 +18,9 @@ export default function ViewEventPage({ user, handleLogout }) {
   async function getEvent() {
     try {
       const data = await eventsAPI.getEvent(eventTitle);
+      console.log(data, "<- this is data from getEvent");
       setLoading(false);
-      setEvent(data.data);
+      setEvent(data.event);
     } catch (err) {
       console.log(err);
       setError(err.message);
@@ -53,7 +54,7 @@ export default function ViewEventPage({ user, handleLogout }) {
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>;
       <EventInfo
-        title={event.title}
+        title={event?.title}
         description={event.description}
         location={event.location}
         date={event.date}
