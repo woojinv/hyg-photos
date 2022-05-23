@@ -48,8 +48,8 @@ async function deletePhoto(req, res) {
   console.log(req.params.photoId, "<- this is req.params.photoId");
   console.log("delete photo controller hit");
   try {
-    await Photo.findOneAndDelete({ _id: req.params.photoId });
-    res.status(200).json({});
+    const photo = await Photo.findOneAndDelete({ _id: req.params.photoId });
+    res.status(200).json({ photo });
   } catch (err) {
     console.log(err, "this is err from deletePhoto controller");
     res.json({ data: err });
