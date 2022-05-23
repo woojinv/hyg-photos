@@ -27,5 +27,12 @@ export async function getEvent(eventTitle) {
 }
 
 export async function deleteEvent(eventId) {
-  console.log(eventId, "<- this is eventId from deletEvent util function");
+  const res = await fetch(BASE_URL + eventId, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  });
+  if (res.ok) return res.json();
+  throw new Error("bad credentials! check the server terminal");
 }
