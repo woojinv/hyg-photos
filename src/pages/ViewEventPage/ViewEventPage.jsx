@@ -56,7 +56,9 @@ export default function ViewEventPage({ user, handleLogout }) {
           photoUrl={event.photoUrl}
           id={event._id}
         />
-      ) : null}
+      ) : (
+        <EventInfo />
+      )}
       <PhotoGallery />
     </>
   );
