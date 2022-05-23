@@ -53,4 +53,12 @@ async function index(req, res) {
 
 async function getEvent(req, res) {
   console.log(req.params, "getEvent controller hit!");
+  try {
+    const event = await Event.findOne({ title: req.params.eventTitle });
+    if (!event) return res.status(404).json({ err: "Event not found" });
+    res.status(200).json({ event: event });
+  } catch (err) {
+    console.log(err, "<- this is err from getEvent controller");
+    res.status(400).json({ err });
+  }
 }
