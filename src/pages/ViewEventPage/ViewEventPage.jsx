@@ -56,6 +56,17 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
+  async function deletePhoto(photoId) {
+    console.log(photoId, "this is photoId");
+    try {
+      const data = await photosAPI.deletePhoto(photoId);
+      console.log(data, "this is data from deletePhoto");
+    } catch (err) {
+      console.log(err, "this is err from deletePhoto");
+      setError(err.message);
+    }
+  }
+
   useEffect(() => {
     getEvent();
     getPhotos();
@@ -92,7 +103,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         id={event._id}
       />
       <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
-      <PhotoGallery photos={photos} user={user} />
+      <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
     </>
   );
 }
