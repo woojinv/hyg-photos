@@ -29,10 +29,11 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
-  async function handleAddPhoto(eventTitle, photo) {
+  async function handleAddPhoto(photo) {
+    console.log(photo, "<- this is photo from handleAddPhoto");
     try {
       setLoading(true);
-      const data = await photosAPI.create(eventTitle, photo);
+      const data = await photosAPI.create(photo);
     } catch (err) {
       console.log(err, "<- this is err from handleAddPhoto");
       setError(err.message);
@@ -73,7 +74,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         photoUrl={event.photoUrl}
         id={event._id}
       />
-      <AddPhotoForm handleAddPhoto={handleAddPhoto} />
+      <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event.title} />
       <PhotoGallery />
     </>
   );
