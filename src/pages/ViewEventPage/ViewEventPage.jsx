@@ -61,6 +61,7 @@ export default function ViewEventPage({ user, handleLogout }) {
     try {
       const data = await photosAPI.deletePhoto(photoId);
       console.log(data, "this is data from deletePhoto");
+      getPhotos();
     } catch (err) {
       console.log(err, "this is err from deletePhoto");
       setError(err.message);
