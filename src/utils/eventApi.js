@@ -22,4 +22,5 @@ export async function getAll() {
 
 export async function getEvent(eventTitle) {
   console.log(eventTitle, "this is the title of the event i'm getting");
+  return fetch(BASE_URL);
 }
