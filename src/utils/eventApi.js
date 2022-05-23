@@ -25,3 +25,7 @@ export async function getEvent(eventTitle) {
   if (res.ok) return res.json();
   throw new Error("bad credentials! check the server terminal");
 }
+
+export async function deleteEvent(eventId) {
+  console.log(eventId, "<- this is eventId from deletEvent util function");
+}
