@@ -3,10 +3,9 @@ import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default function EventCard({ event, user, deleteEvent }) {
-  console.log(event.user._id, "this is event");
   function handleClick(e) {
-    console.log(e.target);
-    deleteEvent();
+    const eventId = e.target.attributes[0].value;
+    deleteEvent(eventId);
   }
 
   if (user) {

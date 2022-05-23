@@ -22,8 +22,8 @@ export default function EventsPage({ user, handleLogout }) {
     }
   }
 
-  async function deleteEvent() {
-    console.log("deleteEvents hit in Eventspage");
+  async function deleteEvent(eventId) {
+    console.log(eventId, "<- this is the eventId");
   }
 
   useEffect(() => {
