@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+
 import EventInfo from "../../components/EventInfo/EventInfo";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery";
 
@@ -15,15 +17,9 @@ export default function ViewEventPage({ user, handleLogout }) {
 
   async function getEvent() {
     try {
-      console.log("getEvent hit");
-      console.log(
-        eventTitle,
-        "<- this is ttile from getEvent in ViewEventpage"
-      );
       const data = await eventsAPI.getEvent(eventTitle);
-      console.log(data, "<- this is data from getEvent on ViewEventpage");
-      setEvent(data.data);
       setLoading(false);
+      setEvent(data.data);
     } catch (err) {
       console.log(err);
       setError(err.message);
@@ -33,6 +29,15 @@ export default function ViewEventPage({ user, handleLogout }) {
   useEffect(() => {
     getEvent();
   }, []);
+
+  if (error) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <ErrorMessage error={error} />
+      </>
+    );
+  }
 
   if (loading) {
     return (
@@ -47,18 +52,14 @@ export default function ViewEventPage({ user, handleLogout }) {
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>;
-      {event ? (
-        <EventInfo
-          title={event.title}
-          description={event.description}
-          location={event.location}
-          date={event.date}
-          photoUrl={event.photoUrl}
-          id={event._id}
-        />
-      ) : (
-        <EventInfo />
-      )}
+      <EventInfo
+        title={event.title}
+        description={event.description}
+        location={event.location}
+        date={event.date}
+        photoUrl={event.photoUrl}
+        id={event._id}
+      />
       <PhotoGallery />
     </>
   );

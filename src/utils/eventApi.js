@@ -21,7 +21,6 @@ export async function getAll() {
 }
 
 export async function getEvent(eventTitle) {
-  console.log(eventTitle, "this is the title of the event i'm getting");
   const res = await fetch(BASE_URL + eventTitle);
   if (res.ok) return res.json();
   throw new Error("bad credentials! check the server terminal");
