@@ -28,6 +28,10 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
+  async function handleAddPhoto() {
+    console.log("handleAddphoto on ViewEventPage hit");
+  }
+
   useEffect(() => {
     getEvent();
   }, []);
@@ -62,7 +66,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         photoUrl={event.photoUrl}
         id={event._id}
       />
-      <AddPhotoForm />
+      <AddPhotoForm handleAddPhoto={handleAddPhoto} />
       <PhotoGallery />
     </>
   );
