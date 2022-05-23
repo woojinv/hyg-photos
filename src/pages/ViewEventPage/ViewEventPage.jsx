@@ -47,6 +47,7 @@ export default function ViewEventPage({ user, handleLogout }) {
       setLoading(true);
       const data = await photosAPI.getAll(eventTitle);
       console.log(data, "<- this is data from getPhotos");
+      setPhotos(data.photos);
     } catch (err) {
       console.log(err.message, "<- this is err from getPhotos");
       setError(err.message);
@@ -89,7 +90,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         id={event._id}
       />
       <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event.title} />
-      <PhotoGallery />
+      <PhotoGallery photos={photos} />
     </>
   );
 }
