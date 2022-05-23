@@ -30,7 +30,7 @@ export default function CreatePage({ user, handleLogout }) {
 
     try {
       eventsAPI.create(formData);
-      navigate("/");
+      navigate("/events");
     } catch (err) {
       setError(err.message);
       console.log(err.message, "<- this is error message from handleSubmit");
