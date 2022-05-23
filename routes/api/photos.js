@@ -4,4 +4,10 @@ const photosCtrl = require("../../controllers/photos.js");
 const multer = require("multer");
 const upload = multer();
 
-router.post("/events/:eventTitle/photos", photosCtrl.create);
+router.post(
+  "/events/:eventTitle/photos",
+  upload.single("photo"),
+  photosCtrl.create
+);
+
+module.exports = router;
