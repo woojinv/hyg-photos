@@ -7,6 +7,7 @@ const s3 = new S3();
 module.exports = {
   create,
   index,
+  getEvent,
 };
 
 async function create(req, res) {
@@ -48,4 +49,8 @@ async function index(req, res) {
   } catch (err) {
     console.log(err, "<- err from events index controller");
   }
+}
+
+async function getEvent(req, res) {
+  console.log(req.params, "getEvent controller hit!");
 }

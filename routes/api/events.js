@@ -5,6 +5,7 @@ const multer = require("multer");
 const upload = multer();
 
 router.post("/", upload.single("photo"), eventsCtrl.create);
+router.get("/:eventTitle", eventsCtrl.getEvent);
 router.get("/", eventsCtrl.index);
 
 module.exports = router;

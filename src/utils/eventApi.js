@@ -1,6 +1,6 @@
 import tokenService from "./tokenService";
 
-const BASE_URL = "/api/events";
+const BASE_URL = "/api/events/";
 
 export async function create(event) {
   const res = await fetch(BASE_URL, {
@@ -22,5 +22,5 @@ export async function getAll() {
 
 export async function getEvent(eventTitle) {
   console.log(eventTitle, "this is the title of the event i'm getting");
-  return fetch(BASE_URL);
+  const res = await fetch(BASE_URL + eventTitle);
 }
