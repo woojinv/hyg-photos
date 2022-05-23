@@ -4,7 +4,7 @@ const S3 = require("aws-sdk/clients/s3");
 const { v4: uuidv4 } = require("uuid");
 
 const s3 = new S3();
-module.exports = { create, index };
+module.exports = { create, index, deletePhoto };
 
 async function create(req, res) {
   try {
@@ -40,6 +40,18 @@ async function index(req, res) {
     res.status(200).json({ photos });
   } catch (err) {
     console.log(err);
+    res.json({ data: err });
+  }
+}
+
+async function deletePhoto(req, res) {
+  console.log(req.params.photoId, "<- this is req.params.photoId");
+  console.log("delete photo controller hit");
+  try {
+    await Photo.findOneAndDelete({ _id: req.params.photoId });
+    res.status(200).json({});
+  } catch (err) {
+    console.log(err, "this is err from deletePhoto controller");
     res.json({ data: err });
   }
 }

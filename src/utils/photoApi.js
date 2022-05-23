@@ -22,4 +22,12 @@ export async function getAll(eventTitle) {
 
 export async function deletePhoto(photoId) {
   console.log(photoId, "<- this is photoId from deletePhoto");
+  const res = await fetch(`${BASE_URL}/photos/${photoId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  });
+  if (res.ok) return res.json();
+  throw new Error("bad credentials. check the server terminal");
 }

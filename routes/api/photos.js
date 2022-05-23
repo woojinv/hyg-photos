@@ -10,5 +10,6 @@ router.post(
   photosCtrl.create
 );
 router.get("/events/:eventTitle/photos", photosCtrl.index);
+router.delete("/photos/:photoId", photosCtrl.deletePhoto);
 
 module.exports = router;
