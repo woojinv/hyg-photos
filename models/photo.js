@@ -5,7 +5,6 @@ const photoSchema = new mongoose.Schema(
     photoUrl: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     event: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
-    eventTitle: String,
   },
   {
     timestamps: true,
