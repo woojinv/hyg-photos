@@ -94,7 +94,7 @@ export default function ViewEventPage({ user, handleLogout }) {
   return (
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
-      <h1>This is the View Event Page</h1>;
+      <h1>This is the View Event Page</h1>
       <EventInfo
         title={event?.title}
         description={event.description}

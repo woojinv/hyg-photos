@@ -14,12 +14,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
         <Image src={photo.photoUrl} />
 
         {photo.user === user._id ? (
-          <Icon
-            name="delete"
-            onClick={handleClick}
-            photoid={photo._id}
-            userid={user._id}
-          />
+          <Icon name="delete" onClick={handleClick} photoid={photo._id} />
         ) : null}
       </Card>
     );
