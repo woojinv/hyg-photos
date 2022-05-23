@@ -16,6 +16,7 @@ export default function ViewEventPage({ user, handleLogout }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [event, setEvent] = useState({});
+  const [photos, setPhotos] = useState([]);
 
   async function getEvent() {
     try {
@@ -30,7 +31,6 @@ export default function ViewEventPage({ user, handleLogout }) {
   }
 
   async function handleAddPhoto(photo) {
-    console.log(photo, "<- this is photo from handleAddPhoto");
     try {
       setLoading(true);
       const data = await photosAPI.create(photo);
@@ -41,8 +41,13 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
+  async function getPhotos() {
+    console.log("getPhotos hit");
+  }
+
   useEffect(() => {
     getEvent();
+    getPhotos();
   }, []);
 
   if (error) {

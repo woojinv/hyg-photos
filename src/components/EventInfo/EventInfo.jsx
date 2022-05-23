@@ -9,7 +9,6 @@ export default function EventInfo({
   photoUrl,
   id,
 }) {
-  console.log(title);
   return (
     <>
       <h1>Event Info for {title}</h1>
