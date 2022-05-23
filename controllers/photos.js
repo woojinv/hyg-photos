@@ -7,4 +7,12 @@ module.exports = { create };
 
 async function create(req, res) {
   console.log("create controller for photos hit");
+  console.log(
+    req.body,
+    "<- this is req.body",
+    req.params,
+    "<- this is req.params",
+    req.file,
+    "<- this is req.file"
+  );
 }
