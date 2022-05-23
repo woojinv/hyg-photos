@@ -28,8 +28,14 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
-  async function handleAddPhoto() {
-    console.log("handleAddphoto on ViewEventPage hit");
+  async function handleAddPhoto(photo) {
+    try {
+      setLoading(true);
+      const data = await photosAPI.create(photo);
+    } catch (err) {
+      console.log(err, "<- this is err from handleAddPhoto");
+      setError(err.message);
+    }
   }
 
   useEffect(() => {
