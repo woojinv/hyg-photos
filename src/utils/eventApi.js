@@ -20,6 +20,6 @@ export async function getAll() {
   throw new Error("bad credentials! CHECK THE SERVER TERMINAL");
 }
 
-export async function getEvent() {
-  console.log("getEvent hit from eventAPI.js");
+export async function getEvent(title) {
+  console.log(title, "this is the title of the event i'm getting");
 }
