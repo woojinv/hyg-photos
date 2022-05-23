@@ -35,7 +35,7 @@ function App() {
           element={<CreateEventPage user={user} handleLogout={handleLogout} />}
         />
         <Route
-          path="/:event"
+          path="/:eventTitle"
           element={<ViewEventPage user={user} handleLogout={handleLogout} />}
         />
         <Route path="/*" element={<Navigate to="/" />} />
@@ -51,7 +51,7 @@ function App() {
         element={<EventsPage user={user} handleLogout={handleLogout} />}
       />
       <Route
-        path="/:event"
+        path="/:eventTitle"
         element={<ViewEventPage user={user} handleLogout={handleLogout} />}
       />
       <Route
