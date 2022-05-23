@@ -23,9 +23,10 @@ export default function EventsPage({ user, handleLogout }) {
   }
 
   async function deleteEvent(eventId) {
-    console.log(eventId, "<- this is the eventId");
     try {
       const data = await eventsAPI.deleteEvent(eventId);
+      console.log(data, "<- this is data from deleteEvent");
+      getEvents();
     } catch (err) {
       console.log(err.message, "<- this is err from eventId");
       setError(err.message);

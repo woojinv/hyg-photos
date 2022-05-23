@@ -61,4 +61,10 @@ async function getEvent(req, res) {
 
 async function deleteEvent(req, res) {
   console.log(req.params.eventId, "<- this is req.params.eventId");
+  try {
+    const event = await Event.findOneAndDelete({ _id: req.params.eventId });
+    res.status(200).json({ event });
+  } catch (err) {
+    console.log(err, "<- this is err from deleteEvent controller");
+  }
 }
