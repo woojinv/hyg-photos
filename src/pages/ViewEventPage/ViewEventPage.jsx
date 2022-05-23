@@ -92,7 +92,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         id={event._id}
       />
       <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
-      <PhotoGallery photos={photos} />
+      <PhotoGallery photos={photos} user={user} />
     </>
   );
 }
