@@ -29,10 +29,10 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
-  async function handleAddPhoto(photo) {
+  async function handleAddPhoto(eventTitle, photo) {
     try {
       setLoading(true);
-      const data = await photosAPI.create(photo);
+      const data = await photosAPI.create(eventTitle, photo);
     } catch (err) {
       console.log(err, "<- this is err from handleAddPhoto");
       setError(err.message);
