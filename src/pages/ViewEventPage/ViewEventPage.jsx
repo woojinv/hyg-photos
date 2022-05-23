@@ -9,6 +9,7 @@ import PhotoGallery from "../../components/PhotoGallery/PhotoGallery";
 import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
 import * as eventsAPI from "../../utils/eventApi";
+import * as photosAPI from "../../utils/photoApi";
 
 export default function ViewEventPage({ user, handleLogout }) {
   const { eventTitle } = useParams();
