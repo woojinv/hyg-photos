@@ -36,7 +36,10 @@ function App() {
           path="/create"
           element={<CreateEventPage user={user} handleLogout={handleLogout} />}
         />
-        <Route path="/:event" element={<ViewEventPage />} />
+        <Route
+          path="/:event"
+          element={<ViewEventPage user={user} handleLogout={handleLogout} />}
+        />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     );
@@ -49,7 +52,10 @@ function App() {
         path="/events"
         element={<EventsPage user={user} handleLogout={handleLogout} />}
       />
-      <Route path="/:event" element={<ViewEventPage />} />
+      <Route
+        path="/:event"
+        element={<ViewEventPage user={user} handleLogout={handleLogout} />}
+      />
       <Route
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
