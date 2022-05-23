@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import EventInfo from "../../components/EventInfo/EventInfo";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery";
+import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
 import * as eventsAPI from "../../utils/eventApi";
 
@@ -61,6 +62,7 @@ export default function ViewEventPage({ user, handleLogout }) {
         photoUrl={event.photoUrl}
         id={event._id}
       />
+      <AddPhotoForm />
       <PhotoGallery />
     </>
   );
