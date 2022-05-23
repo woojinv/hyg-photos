@@ -49,6 +49,7 @@ function App() {
         path="/events"
         element={<EventsPage user={user} handleLogout={handleLogout} />}
       />
+      <Route path="/:event" element={<ViewEventPage />} />
       <Route
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
