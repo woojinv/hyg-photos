@@ -5,12 +5,14 @@ import "../../pages/ViewEventPage/ViewEventPage.css";
 mapboxgl.accessToken =
   "pk.eyJ1Ijoid29vamludiIsImEiOiJjbDNmMHpka3AwbmVqM2J0bDVoang5b2M0In0.ub8_hkF0ZBD-VENeVLbGlw";
 
-export default function App() {
+export default function App({ coordinates }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
   const [zoom, setZoom] = useState(9);
+
+  console.log(coordinates, "<- this is coordinates");
 
   useEffect(() => {
     if (map.current) return; // initialize map only once

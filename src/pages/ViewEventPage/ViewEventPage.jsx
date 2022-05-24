@@ -12,7 +12,11 @@ import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
 import * as eventsAPI from "../../utils/eventApi";
 import * as photosAPI from "../../utils/photoApi";
-import EditEventPage from "../EditEventPage/EditEventPage";
+
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
 
 export default function ViewEventPage({ user, handleLogout, editEvent }) {
   const { eventTitle } = useParams();
@@ -75,9 +79,27 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     editEvent(event);
   }
 
+  const [coordinates, setCoordinates] = useState({
+    latitude: null,
+    longitude: null,
+  });
+
+  async function getCoordinates() {
+    const parameter = { address: event?.location };
+    console.log(parameter.address, "<- this is getCoordinates");
+    try {
+      const res = await getGeocode(parameter);
+      const { lat, lng } = getLatLng(res[0]);
+      setCoordinates({ latitude: lat, longitude: lng });
+    } catch (err) {
+      console.log(err, "<- this is err from getCoordiantes");
+    }
+  }
+
   useEffect(() => {
     getEvent();
     getPhotos();
+    getCoordinates();
   }, []);
 
   if (error) {
@@ -103,7 +125,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
       <>
         <PageHeader user={user} handleLogout={handleLogout} />
         <h1>This is the View Event Page</h1>
-        <Map />
+        <Map coordinates={coordinates} />
 
         {user._id === event.user ? (
           <Link to={`/${event.title}/edit`}>
