@@ -49,6 +49,11 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
       ...state,
       [e.target.name]: e.target.value,
     });
+    const inputField = e.target.attributes[0].value;
+
+    if (inputField === "location") {
+      handleInput(e);
+    }
   }
 
   function handleFileInput(e) {
@@ -151,7 +156,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                   <input
                     name="location"
                     value={value}
-                    onChange={handleInput}
+                    onChange={handleChange}
                     disabled={!ready}
                     placeholder="Where did this event take place?"
                   />
