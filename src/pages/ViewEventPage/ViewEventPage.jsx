@@ -160,6 +160,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>
+      {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
 
       <EventInfo
         title={event?.title}
