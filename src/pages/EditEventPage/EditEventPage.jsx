@@ -9,6 +9,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
   console.log(event, "<- this is event");
   const [error, setError] = useState("");
   const [newEvent, setNewEvent] = useState({
+    previousTitle: event.title,
     title: event.title,
     description: event.description,
     location: event.location,
