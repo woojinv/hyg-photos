@@ -30,7 +30,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
       const data = await eventsAPI.getEvent(eventTitle);
       console.log(data, "<- this is data from getEvent");
       setLoading(false);
-      setEvent(data.event);
+      setEvent(data?.event);
     } catch (err) {
       console.log(err);
       setError(err.message);
@@ -86,7 +86,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
 
   async function getCoordinates() {
     const parameter = { address: event?.location };
-    console.log(parameter.address, "<- this is getCoordinates");
+    console.log(parameter?.address, "<- this is getCoordinates");
     try {
       const res = await getGeocode(parameter);
       const { lat, lng } = getLatLng(res[0]);
@@ -99,7 +99,6 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   useEffect(() => {
     getEvent();
     getPhotos();
-    getCoordinates();
   }, []);
 
   if (error) {
@@ -127,8 +126,8 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
         <h1>This is the View Event Page</h1>
         <Map coordinates={coordinates} />
 
-        {user._id === event.user ? (
-          <Link to={`/${event.title}/edit`}>
+        {user._id === event?.user ? (
+          <Link to={`/${event?.title}/edit`}>
             <Icon name="edit" size="large" onClick={handleClick} />
           </Link>
         ) : null}
