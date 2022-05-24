@@ -78,16 +78,23 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                 placeholder="Add a brief description of your event or details others may find useful"
                 onChange={handleChange}
               />
-              <Form.Input
+              {/* <Form.Input
                 type="text"
                 name="location"
                 placeholder="Location"
                 value={state.location}
                 onChange={handleChange}
                 required
-              />
+              /> */}
               <Form.Field>
-                <PlacesAutocomplete />
+                <PlacesAutocomplete
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  value={state.location}
+                  onChange={handleChange}
+                  required
+                />
               </Form.Field>
               <Form.Input
                 type="text"
