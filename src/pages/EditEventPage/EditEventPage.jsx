@@ -1,3 +1,4 @@
+import { ConfigurationServicePlaceholders } from "aws-sdk/lib/config_service_placeholders";
 import React, { useState } from "react";
 import { Grid, Form, Segment, Button } from "semantic-ui-react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -20,7 +21,8 @@ export default function EditEventPage({ user, handleLogout, event }) {
     e.preventDefault();
 
     try {
-      await eventAPI.editEvent(newEvent);
+      const data = await eventAPI.editEvent(newEvent);
+      console.log(data, "<- this is data from handleSubmit in EditEventPage");
     } catch (err) {
       console.log(
         err.message,
