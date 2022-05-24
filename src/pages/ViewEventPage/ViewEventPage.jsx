@@ -70,7 +70,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     }
   }
 
-  function handleClick(event) {
+  function handleClick() {
     editEvent(event);
   }
 
