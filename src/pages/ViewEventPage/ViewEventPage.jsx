@@ -134,7 +134,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
       <>
         <PageHeader user={user} handleLogout={handleLogout} />
         <h1>This is the View Event Page</h1>
-        <Map coordinates={coordinates} />
+        {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
 
         {user._id === event?.user ? (
           <Link to={`/${event?.title}/edit`}>
