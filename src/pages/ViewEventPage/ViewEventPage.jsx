@@ -96,7 +96,7 @@ export default function ViewEventPage({ user, handleLogout }) {
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>
-      <Link to={`${event.title}/edit`}>
+      <Link to={`/${event.title}/edit`}>
         <Icon name="edit" size="large" />
       </Link>
 
