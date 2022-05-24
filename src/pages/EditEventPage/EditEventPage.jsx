@@ -145,7 +145,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
                     value={value}
                     onChange={handleChange}
                     disabled={!ready}
-                    placeholder="Where did this event take place?"
+                    placeholder={newEvent.location}
                   />
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {status === "OK" && <ul>{renderSuggestions()}</ul>}

@@ -40,7 +40,10 @@ export async function deleteEvent(eventId) {
 export async function editEvent(newEvent) {
   const res = await fetch(`${BASE_URL}/${newEvent.previousTitle}/edit`, {
     method: "PUT",
-    headers: { "Content-type": "application/json" },
+    headers: {
+      "Content-type": "application/json",
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
     body: JSON.stringify(newEvent),
   });
   if (res.ok) return res.json();
