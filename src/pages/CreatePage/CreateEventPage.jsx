@@ -4,6 +4,8 @@ import PageHeader from "../../components/Header/Header";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
+import PlacesAutocomplete from "../../components/PlacesAutocomplete/PlacesAutocomplete";
+
 import * as eventsAPI from "../../utils/eventApi";
 
 export default function CreatePage({ user, handleLogout, handleSubmit }) {
