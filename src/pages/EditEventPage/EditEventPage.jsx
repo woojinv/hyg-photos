@@ -111,6 +111,11 @@ export default function EditEventPage({ user, handleLogout, event }) {
       );
     });
 
+  // if user refreshes page while editing event, redirect to all events
+  if (!event.title) {
+    navigate("/events");
+  }
+
   return (
     <Grid centered>
       <Grid.Row>

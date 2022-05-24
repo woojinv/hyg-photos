@@ -12,8 +12,6 @@ export default function Map({ coordinates }) {
   const [lat, setLat] = useState(Number(coordinates.latitude));
   const [zoom, setZoom] = useState(9);
 
-  console.log(coordinates, "<- this is coordinates from Map");
-
   async function setMap() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({

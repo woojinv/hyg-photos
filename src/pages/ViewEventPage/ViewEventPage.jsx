@@ -29,7 +29,6 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     try {
       setLoading(true);
       const data = await eventsAPI.getEvent(eventTitle);
-      console.log(data, "<- this is data from getEvent");
 
       setEvent(data?.event);
       setLoading(false);
@@ -43,7 +42,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     try {
       setLoading(true);
       const data = await photosAPI.create(photo);
-      console.log(data, "<- this is data from handleADdPhoto");
+
       setLoading(false);
       getPhotos();
     } catch (err) {
@@ -56,7 +55,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     try {
       setLoading(true);
       const data = await photosAPI.getAll(eventTitle);
-      console.log(data, "<- this is data from getPhotos");
+
       setPhotos(data?.photos);
       setLoading(false);
     } catch (err) {
@@ -69,7 +68,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     console.log(photoId, "this is photoId");
     try {
       const data = await photosAPI.deletePhoto(photoId);
-      console.log(data, "this is data from deletePhoto");
+
       getPhotos();
     } catch (err) {
       console.log(err, "this is err from deletePhoto");
@@ -87,10 +86,8 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   });
 
   async function getCoordinates() {
-    console.log(event, "<- this is event from getCoordinates");
     const parameter = { address: event?.location };
-    console.log(parameter, "<- this is parameter");
-    console.log(parameter?.address, "<- this is getCoordinates");
+
     try {
       const res = await getGeocode(parameter);
       const { lat, lng } = getLatLng(res[0]);
