@@ -22,6 +22,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
     "serve-favicon": "^2.5.0",
+    "use-places-autocomplete": "^3.0.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
