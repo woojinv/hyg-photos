@@ -5,6 +5,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import EventsPage from "../EventsPage/EventsPage";
 import CreateEventPage from "../CreatePage/CreateEventPage";
 import ViewEventPage from "../ViewEventPage/ViewEventPage";
+import EditEventPage from "../EditEventPage/EditEventPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
