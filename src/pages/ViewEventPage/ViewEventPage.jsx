@@ -19,6 +19,9 @@ export default function ViewEventPage({ user, handleLogout }) {
   const [event, setEvent] = useState({});
   const [photos, setPhotos] = useState([]);
 
+  console.log(user, "<- this is user");
+  console.log(event, "<- this is event");
+
   async function getEvent() {
     try {
       const data = await eventsAPI.getEvent(eventTitle);
@@ -92,13 +95,36 @@ export default function ViewEventPage({ user, handleLogout }) {
     );
   }
 
+  if (user) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <h1>This is the View Event Page</h1>
+
+        {user._id === event.user ? (
+          <Link to={`/${event.title}/edit`}>
+            <Icon name="edit" size="large" />
+          </Link>
+        ) : null}
+
+        <EventInfo
+          title={event?.title}
+          description={event.description}
+          location={event.location}
+          date={event.date}
+          photoUrl={event.photoUrl}
+          id={event._id}
+        />
+        <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
+        <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
+      </>
+    );
+  }
+
   return (
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>
-      <Link to={`/${event.title}/edit`}>
-        <Icon name="edit" size="large" />
-      </Link>
 
       <EventInfo
         title={event?.title}
