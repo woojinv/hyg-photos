@@ -27,10 +27,12 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
 
   async function getEvent() {
     try {
+      setLoading(true);
       const data = await eventsAPI.getEvent(eventTitle);
       console.log(data, "<- this is data from getEvent");
-      setLoading(false);
+
       setEvent(data?.event);
+      setLoading(false);
     } catch (err) {
       console.log(err);
       setError(err.message);
@@ -100,6 +102,10 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     getEvent();
     getPhotos();
   }, []);
+
+  useEffect(() => {
+    getCoordinates();
+  }, [event]);
 
   if (error) {
     return (
