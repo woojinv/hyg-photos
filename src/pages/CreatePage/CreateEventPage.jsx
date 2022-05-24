@@ -96,6 +96,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
       getGeocode({ address: description }).then((results) => {
         try {
           const { lat, lng } = getLatLng(results[0]);
+
           console.log("📍 Coordinates: ", { lat, lng });
         } catch (error) {
           console.log("😱 Error: ", error);
