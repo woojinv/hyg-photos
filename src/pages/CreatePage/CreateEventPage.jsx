@@ -57,7 +57,6 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
   }
 
   function handleFileInput(e) {
-    console.log(e.target.files);
     setSelectedFile(e.target.files[0]);
   }
 
@@ -82,6 +81,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
   const handleInput = (e) => {
     // Update the keyword of the input element
     setValue(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleSelect =
