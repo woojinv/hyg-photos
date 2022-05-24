@@ -39,7 +39,10 @@ function App() {
           path="/:eventTitle"
           element={<ViewEventPage user={user} handleLogout={handleLogout} />}
         />
-        <Route path="/:eventTitle/edit" element={<EditEventPage />} />
+        <Route
+          path="/:eventTitle/edit"
+          element={<EditEventPage user={user} handleLogout={handleLogout} />}
+        />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     );

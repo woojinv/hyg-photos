@@ -19,9 +19,6 @@ export default function ViewEventPage({ user, handleLogout }) {
   const [event, setEvent] = useState({});
   const [photos, setPhotos] = useState([]);
 
-  console.log(user, "<- this is user");
-  console.log(event, "<- this is event");
-
   async function getEvent() {
     try {
       const data = await eventsAPI.getEvent(eventTitle);

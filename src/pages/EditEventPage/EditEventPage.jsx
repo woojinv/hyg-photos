@@ -1,5 +1,10 @@
 import React from "react";
+import PageHeader from "../../components/Header/Header";
 
-export default function EditEventPage() {
-  return <h1>this is the Edit Event Page</h1>;
+export default function EditEventPage({ user, handleLogout }) {
+  return (
+    <>
+      <PageHeader user={user} handleLogout={handleLogout} />
+    </>
+  );
 }
