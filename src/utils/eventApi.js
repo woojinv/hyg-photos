@@ -38,13 +38,11 @@ export async function deleteEvent(eventId) {
 }
 
 export async function editEvent(newEvent) {
-  console.log(newEvent.previousTitle, "<- previous title");
+  console.log(JSON.stringify(newEvent), "<- this is newEvent in json");
   const res = await fetch(`${BASE_URL}/${newEvent.previousTitle}/edit`, {
     method: "PUT",
-    body: newEvent,
-    headers: {
-      Authorization: "Bearer " + tokenService.getToken(),
-    },
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(newEvent),
   });
   if (res.ok) return res.json();
   throw new Error("bad credentials, check the server terminal");

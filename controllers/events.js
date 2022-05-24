@@ -71,5 +71,5 @@ async function deleteEvent(req, res) {
 }
 
 async function editEvent(req, res) {
-  console.log("hit");
+  console.log(req.body, "<- this is req.body");
 }
