@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
 import App from "./pages/App/App";
 import * as serviceWorker from "./serviceWorker";
