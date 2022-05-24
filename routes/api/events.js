@@ -8,5 +8,6 @@ router.post("/", upload.single("photo"), eventsCtrl.create);
 router.get("/:eventTitle", eventsCtrl.getEvent);
 router.get("/", eventsCtrl.index);
 router.delete("/:eventId", eventsCtrl.deleteEvent);
+router.put("/:eventTitle/edit", eventsCtrl.editEvent);
 
 module.exports = router;
