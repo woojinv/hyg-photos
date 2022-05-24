@@ -170,7 +170,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
         photoUrl={event.photoUrl}
         id={event._id}
       />
-      <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
+
       <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
     </>
   );
