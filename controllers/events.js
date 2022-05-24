@@ -71,5 +71,10 @@ async function deleteEvent(req, res) {
 }
 
 async function editEvent(req, res) {
-  console.log(req.body, "<- this is req.body");
+  try {
+    const event = await Event.findOne({ title: req.body.previousTitle });
+    console.log(event, "<- this is event");
+  } catch (err) {
+    console.log(err, "<- this is err from editEvent controller");
+  }
 }
