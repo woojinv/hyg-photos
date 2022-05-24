@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { Icon } from "semantic-ui-react";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -95,6 +96,10 @@ export default function ViewEventPage({ user, handleLogout }) {
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>
+      <Link to={`${event.title}/edit`}>
+        <Icon name="edit" size="large" />
+      </Link>
+
       <EventInfo
         title={event?.title}
         description={event.description}
