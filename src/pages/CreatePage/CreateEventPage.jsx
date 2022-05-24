@@ -86,6 +86,9 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                 onChange={handleChange}
                 required
               />
+              <Form.Field>
+                <PlacesAutocomplete />
+              </Form.Field>
               <Form.Input
                 type="text"
                 name="date"
