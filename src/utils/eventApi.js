@@ -38,7 +38,6 @@ export async function deleteEvent(eventId) {
 }
 
 export async function editEvent(newEvent) {
-  console.log(JSON.stringify(newEvent), "<- this is newEvent in json");
   const res = await fetch(`${BASE_URL}/${newEvent.previousTitle}/edit`, {
     method: "PUT",
     headers: { "Content-type": "application/json" },
