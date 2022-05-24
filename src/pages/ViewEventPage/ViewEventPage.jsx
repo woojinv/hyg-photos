@@ -11,8 +11,9 @@ import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
 import * as eventsAPI from "../../utils/eventApi";
 import * as photosAPI from "../../utils/photoApi";
+import EditEventPage from "../EditEventPage/EditEventPage";
 
-export default function ViewEventPage({ user, handleLogout }) {
+export default function ViewEventPage({ user, handleLogout, editEvent }) {
   const { eventTitle } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -69,6 +70,10 @@ export default function ViewEventPage({ user, handleLogout }) {
     }
   }
 
+  function handleClick(event) {
+    editEvent(event);
+  }
+
   useEffect(() => {
     getEvent();
     getPhotos();
@@ -100,7 +105,7 @@ export default function ViewEventPage({ user, handleLogout }) {
 
         {user._id === event.user ? (
           <Link to={`/${event.title}/edit`}>
-            <Icon name="edit" size="large" />
+            <Icon name="edit" size="large" onClick={handleClick} />
           </Link>
         ) : null}
 

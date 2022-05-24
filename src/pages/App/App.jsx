@@ -12,6 +12,7 @@ import userService from "../../utils/userService";
 
 function App() {
   const [user, setUser] = useState(userService.getUser());
+  const [event, setEvent] = useState({});
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
@@ -21,6 +22,10 @@ function App() {
   function handleLogout() {
     userService.logout();
     setUser(null);
+  }
+
+  function editEvent(event) {
+    setEvent(event);
   }
 
   if (user) {
@@ -37,11 +42,23 @@ function App() {
         />
         <Route
           path="/:eventTitle"
-          element={<ViewEventPage user={user} handleLogout={handleLogout} />}
+          element={
+            <ViewEventPage
+              user={user}
+              handleLogout={handleLogout}
+              editEvent={editEvent}
+            />
+          }
         />
         <Route
           path="/:eventTitle/edit"
-          element={<EditEventPage user={user} handleLogout={handleLogout} />}
+          element={
+            <EditEventPage
+              user={user}
+              handleLogout={handleLogout}
+              event={event}
+            />
+          }
         />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
