@@ -9,6 +9,7 @@ module.exports = {
   index,
   getEvent,
   deleteEvent,
+  editEvent,
 };
 
 async function create(req, res) {
@@ -67,4 +68,8 @@ async function deleteEvent(req, res) {
   } catch (err) {
     console.log(err, "<- this is err from deleteEvent controller");
   }
+}
+
+async function editEvent(req, res) {
+  console.log("hit");
 }

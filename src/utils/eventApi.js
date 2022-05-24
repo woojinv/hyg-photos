@@ -39,7 +39,7 @@ export async function deleteEvent(eventId) {
 
 export async function editEvent(newEvent) {
   console.log(newEvent.previousTitle, "<- previous title");
-  const res = await fetch(BASE_URL + newEvent.previousTitle, {
+  const res = await fetch(`${BASE_URL}/${newEvent.previousTitle}/edit`, {
     method: "PUT",
     body: newEvent,
     headers: {
