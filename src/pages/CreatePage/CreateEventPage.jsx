@@ -87,14 +87,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                 required
               /> */}
               <Form.Field>
-                <PlacesAutocomplete
-                  type="text"
-                  name="location"
-                  placeholder="Location"
-                  value={state.location}
-                  onChange={handleChange}
-                  required
-                />
+                <PlacesAutocomplete />
               </Form.Field>
               <Form.Input
                 type="text"
