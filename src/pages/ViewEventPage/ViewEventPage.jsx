@@ -87,7 +87,9 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   });
 
   async function getCoordinates() {
+    console.log(event, "<- this is event from getCoordinates");
     const parameter = { address: event?.location };
+    console.log(parameter, "<- this is parameter");
     console.log(parameter?.address, "<- this is getCoordinates");
     try {
       const res = await getGeocode(parameter);
@@ -104,7 +106,9 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   }, []);
 
   useEffect(() => {
-    getCoordinates();
+    if (event.location) {
+      getCoordinates();
+    }
   }, [event]);
 
   if (error) {
@@ -156,7 +160,6 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
     <>
       <PageHeader user={user} handleLogout={handleLogout} />
       <h1>This is the View Event Page</h1>
-      <Map />
 
       <EventInfo
         title={event?.title}
