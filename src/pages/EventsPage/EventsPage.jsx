@@ -10,6 +10,9 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 
+// React Bootstrap
+import Container from "react-bootstrap/Container";
+
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
@@ -98,18 +101,24 @@ export default function EventsPage({ user, handleLogout }) {
   }
 
   return (
-    <Grid centered>
-      <Grid.Row>
-        <Grid.Column>
-          <PageHeader user={user} handleLogout={handleLogout} />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
-          <EventsMap coordinates={coordinates} events={events} />
-          <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <Container fluid>
+      <Grid centered>
+        <Grid.Row>
+          <Grid.Column>
+            <PageHeader user={user} handleLogout={handleLogout} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column>
+            <EventsMap coordinates={coordinates} events={events} />
+            <EventGallery
+              events={events}
+              user={user}
+              deleteEvent={deleteEvent}
+            />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
   );
 }
