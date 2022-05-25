@@ -90,6 +90,10 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
       // When user selects a place, we can replace the keyword without request data from API
       // by setting the second parameter to "false"
       setValue(description, false);
+      setState({
+        ...state,
+        location: description,
+      });
       clearSuggestions();
 
       // Get latitude and longitude via utility functions
