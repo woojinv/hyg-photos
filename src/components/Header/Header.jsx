@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
-    <Segment clearing style={{ maxWidth: 600 }}>
+    <Segment
+      clearing
+      style={{
+        maxWidth: 800,
+        width: "100%",
+        margin: "0 auto",
+        marginTop: "1rem",
+      }}
+    >
       <Header floated="left">
         <Menu size="large">
           <Menu.Item>
