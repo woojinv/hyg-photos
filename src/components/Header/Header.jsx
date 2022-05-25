@@ -1,6 +1,7 @@
 import React from "react";
-import { Segment, Header, Image, Menu, MenuItem } from "semantic-ui-react";
+import { Segment, Header, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { findByLabelText } from "@testing-library/react";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
@@ -11,49 +12,44 @@ export default function PageHeader({ user, handleLogout }) {
         width: "100%",
         margin: "0 auto",
         marginTop: "1rem",
+        display: "flex",
+        justifyContent: "space-between",
       }}
     >
-      <Header floated="left">
-        <Menu size="large">
-          <Menu.Item>
-            <Link to="/">
-              <Image
-                src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-                size="tiny"
-              ></Image>
-            </Link>
-          </Menu.Item>
-        </Menu>
-      </Header>
+      <Link to="/">
+        <Image
+          fluid
+          src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+          size="tiny"
+        ></Image>
+      </Link>
 
-      <Header floated="right">
-        <br />
-        <Menu size="large">
-          <Menu.Item>
-            <Link to="/events">Events</Link>
-          </Menu.Item>
-          {user ? (
-            <>
-              <Menu.Item>
-                <Link to="/create">Create an Event</Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="" onClick={handleLogout}>
-                  Log Out
-                </Link>
-              </Menu.Item>
-            </>
-          ) : (
-            <>
-              <Menu.Item>
-                <Link to="/login">Log In</Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="/signup">Sign Up</Link>
-              </Menu.Item>
-            </>
-          )}
-        </Menu>
+      <Header>
+        <Link to="/events">
+          <Button>Events</Button>
+        </Link>
+
+        {user ? (
+          <>
+            <Link to="/create">
+              <Button>Create an Event</Button>
+            </Link>
+
+            <Link to="" onClick={handleLogout}>
+              <Button>Log Out</Button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <Button>Log In</Button>
+            </Link>
+
+            <Link to="/signup">
+              <Button>Sign Up</Button>
+            </Link>
+          </>
+        )}
       </Header>
     </Segment>
   );

@@ -107,7 +107,6 @@ export default function EventsPage({ user, handleLogout }) {
       <Grid.Row>
         <Grid.Column>
           <EventsMap coordinates={coordinates} events={events} />
-          <h1>This is the Events Page</h1>
           <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
         </Grid.Column>
       </Grid.Row>
