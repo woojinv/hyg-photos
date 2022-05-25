@@ -20,6 +20,11 @@ export default function Map({ coordinates }) {
       center: [lng, lat],
       zoom: zoom,
     });
+
+    // Create a new marker.
+    const marker1 = new mapboxgl.Marker()
+      .setLngLat([lng, lat])
+      .addTo(map.current);
   }
 
   useEffect(() => {
