@@ -65,7 +65,6 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   }
 
   async function deletePhoto(photoId) {
-    console.log(photoId, "this is photoId");
     try {
       const data = await photosAPI.deletePhoto(photoId);
 

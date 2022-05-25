@@ -6,8 +6,6 @@ mapboxgl.accessToken =
   "pk.eyJ1Ijoid29vamludiIsImEiOiJjbDNmMHpka3AwbmVqM2J0bDVoang5b2M0In0.ub8_hkF0ZBD-VENeVLbGlw";
 
 export default function EventsMap({ coordinates, events }) {
-  console.log(coordinates, "<- this is coordinates from eventsMap");
-  console.log(events, "<- this is events from eventsMAp");
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(Number(coordinates.longitude));
@@ -25,12 +23,7 @@ export default function EventsMap({ coordinates, events }) {
   }
 
   function getMarkers() {
-    console.log(coordinates, "<- this is coordinates from get markers");
-
-    console.log("hittter");
-
     coordinates.forEach((elem) => {
-      console.log(elem, " hello");
       // creater a new marker
       new mapboxgl.Marker()
         .setLngLat([elem.longitude, elem.latitude])
@@ -43,7 +36,6 @@ export default function EventsMap({ coordinates, events }) {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect is running");
     getMarkers();
   }, [coordinates]);
 

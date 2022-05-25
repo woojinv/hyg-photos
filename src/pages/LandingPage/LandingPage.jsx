@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import PageHeader from "../../components/Header/Header";
 import { Grid, Header, Button, Message } from "semantic-ui-react";
 
-export default function LandingPage(props) {
+export default function LandingPage({ user, handleLogout }) {
   return (
     <>
-      <PageHeader />
+      <PageHeader user={user} handleLogout={handleLogout} />
       <Grid
         textAlign="center"
         style={{ height: "100vh" }}

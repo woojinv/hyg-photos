@@ -32,7 +32,10 @@ function App() {
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={<LandingPage user={user} handleLogout={handleLogout} />}
+        />
         <Route
           path="/events"
           element={<EventsPage user={user} handleLogout={handleLogout} />}
@@ -68,7 +71,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route
+        path="/"
+        element={<LandingPage user={user} handleLogout={handleLogout} />}
+      />
       <Route
         path="/events"
         element={<EventsPage user={user} handleLogout={handleLogout} />}

@@ -1,56 +1,108 @@
 import React from "react";
-import { Segment, Header, Image, Button } from "semantic-ui-react";
+import { Segment, Header, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { findByLabelText } from "@testing-library/react";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+
+import Nav from "react-bootstrap/Nav";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
-    <Segment
-      clearing
-      style={{
-        maxWidth: 800,
-        width: "100%",
-        margin: "0 auto",
-        marginTop: "1rem",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <Link to="/">
-        <Image
-          fluid
-          src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-          size="tiny"
-        ></Image>
-      </Link>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand>
+          <Link to="/">
+            <img
+              style={{ width: "75px" }}
+              src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+            ></img>
+          </Link>
+        </Navbar.Brand>
 
-      <Header>
-        <Link to="/events">
-          <Button>Events</Button>
-        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link>
+              <Link to="/events">Events</Link>
+            </Nav.Link>
 
-        {user ? (
-          <>
-            <Link to="/create">
-              <Button>Create an Event</Button>
-            </Link>
+            {user ? (
+              <Nav.Link>
+                <Link to="/create">Create an Event</Link>
+              </Nav.Link>
+            ) : null}
+          </Nav>
 
-            <Link to="" onClick={handleLogout}>
-              <Button>Log Out</Button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link to="/login">
-              <Button>Log In</Button>
-            </Link>
+          {user ? (
+            <Nav>
+              <Link to="" onClick={handleLogout}>
+                <Button>Log Out</Button>
+              </Link>
+            </Nav>
+          ) : (
+            <Nav>
+              <Link to="/login">
+                <Button>Log In</Button>
+              </Link>
 
-            <Link to="/signup">
-              <Button>Sign Up</Button>
-            </Link>
-          </>
-        )}
-      </Header>
-    </Segment>
+              <Link to="/signup">
+                <Button>Sign Up</Button>
+              </Link>
+            </Nav>
+          )}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    // <Container>
+    //   <Segment
+    //     clearing
+    //     style={{
+    //       maxWidth: 1000,
+    //       width: "100%",
+    //       margin: "0 auto",
+    //       marginTop: "1rem",
+    //       display: "flex",
+    //       justifyContent: "space-between",
+    //     }}
+    //   >
+    // <Link to="/">
+    //   <Image
+    //     fluid
+    //     src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+    //     size="tiny"
+    //   ></Image>
+    // </Link>
+
+    //     <Header>
+    // <Link to="/events">
+    //   <Button>Events</Button>
+    // </Link>
+
+    //       {user ? (
+    //         <>
+    //           <Link to="/create">
+    //             <Button>Create an Event</Button>
+    //           </Link>
+
+    // <Link to="" onClick={handleLogout}>
+    //   <Button>Log Out</Button>
+    // </Link>
+    //         </>
+    //       ) : (
+    //         <>
+    // <Link to="/login">
+    //   <Button>Log In</Button>
+    // </Link>
+
+    // <Link to="/signup">
+    //   <Button>Sign Up</Button>
+    // </Link>
+    //         </>
+    //       )}
+    //     </Header>
+    //   </Segment>
+    // </Container>
   );
 }
