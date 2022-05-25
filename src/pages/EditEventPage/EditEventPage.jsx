@@ -83,6 +83,10 @@ export default function EditEventPage({ user, handleLogout, event }) {
       // When user selects a place, we can replace the keyword without request data from API
       // by setting the second parameter to "false"
       setValue(description, false);
+      setNewEvent({
+        ...newEvent,
+        location: description,
+      });
       clearSuggestions();
 
       // Get latitude and longitude via utility functions
