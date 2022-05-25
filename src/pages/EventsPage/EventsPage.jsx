@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
-import Map from "../../components/Map/Map";
+import EventsMap from "../../components/EventsMap/EventsMap";
 import EventGallery from "../../components/EventGallery/EventGallery";
 import { Grid } from "semantic-ui-react";
 import * as eventsAPI from "../../utils/eventApi";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
 
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
+  const [coordinates, setCoordinates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  async function getCoordinates() {
+    const coordinatesArray = [];
+    events.map(async (event) => {
+      const parameter = { address: event.location };
+      try {
+        const res = await getGeocode(parameter);
+        const { lat, lng } = getLatLng(res[0]);
+        coordinatesArray.push({ latitude: lat, longitude: lng });
+      } catch (err) {
+        console.log(err, "<- this is err from getCoordinates in EventsPage");
+      }
+    });
+    setCoordinates(coordinatesArray);
+  }
 
   async function getEvents() {
     try {
@@ -34,14 +54,15 @@ export default function EventsPage({ user, handleLogout }) {
     }
   }
 
-  const [coordinates, setCoordinates] = useState({
-    latitude: 41.7464,
-    longitude: -87.8173,
-  });
+  // testing purposes
 
   useEffect(() => {
     getEvents();
   }, []);
+
+  useEffect(() => {
+    getCoordinates();
+  }, [events]);
 
   if (loading) {
     return (
@@ -61,7 +82,7 @@ export default function EventsPage({ user, handleLogout }) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <Map coordinates={coordinates} />
+          <EventsMap coordinates={coordinates} events={events} />
           <h1>This is the Events Page</h1>
           <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
         </Grid.Column>
