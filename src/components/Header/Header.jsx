@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
-    <Segment clearing>
+    <Segment clearing style={{ maxWidth: 600 }}>
       <Header floated="left">
         <Menu size="large">
           <Menu.Item>
@@ -17,6 +17,7 @@ export default function PageHeader({ user, handleLogout }) {
           </Menu.Item>
         </Menu>
       </Header>
+
       <Header floated="right">
         <br />
         <Menu size="large">
