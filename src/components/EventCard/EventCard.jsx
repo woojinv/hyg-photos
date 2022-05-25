@@ -20,32 +20,23 @@ export default function EventCard({ event, user, deleteEvent }) {
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>
             <Card.Text>{event.description}</Card.Text>
-            <Button variant="outline-danger">Delete</Button>
+            {event.user._id === user._id ? (
+              <Button variant="outline-danger">Delete</Button>
+            ) : null}
           </Card.Body>
         </Link>
       </Card>
-
-      // <Card>
-      //   <Link to={`/${event.title}`}>
-      //     <Image src={event.photoUrl} />
-      //     <Card.Content>
-      //       <Card.Description>{event.title}</Card.Description>
-      //     </Card.Content>
-      //   </Link>
-      //   {event.user._id === user._id ? (
-      //     <Icon name="delete" onClick={handleClick} eventid={event._id} />
-      //   ) : null}
-      // </Card>
     );
   }
 
   return (
-    <Card>
-      <Link to={`/${event.title}`}>
-        <Image src={event.photoUrl} />
-        <Card.Content>
-          <Card.Description>{event.title}</Card.Description>
-        </Card.Content>
+    <Card style={{ width: "18rem" }}>
+      <Link className="card-link" to={`/${event.title}`}>
+        <Card.Img variant="top" src={event.photoUrl} />
+        <Card.Body>
+          <Card.Title>{event.title}</Card.Title>
+          <Card.Text>{event.description}</Card.Text>
+        </Card.Body>
       </Link>
     </Card>
   );
