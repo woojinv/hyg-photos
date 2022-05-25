@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // bootstrap
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default function EventCard({ event, user, deleteEvent }) {
   function handleClick(e) {
@@ -19,6 +20,7 @@ export default function EventCard({ event, user, deleteEvent }) {
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>
             <Card.Text>{event.description}</Card.Text>
+            <Button variant="outline-danger">Delete</Button>
           </Card.Body>
         </Link>
       </Card>
