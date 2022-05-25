@@ -15,20 +15,19 @@ export default function PageHeader({ user, handleLogout }) {
               ></Image>
             </Link>
           </Menu.Item>
+        </Menu>
+      </Header>
+      <Header floated="right">
+        <br />
+        <Menu size="large">
           <Menu.Item>
             <Link to="/events">Events</Link>
           </Menu.Item>
           {user ? (
-            <Menu.Item>
-              <Link to="/create">Create an Event</Link>
-            </Menu.Item>
-          ) : null}
-        </Menu>
-      </Header>
-      <Header floated="right">
-        <Menu size="large">
-          {user ? (
             <>
+              <Menu.Item>
+                <Link to="/create">Create an Event</Link>
+              </Menu.Item>
               <Menu.Item>
                 <Link to="" onClick={handleLogout}>
                   Log Out
