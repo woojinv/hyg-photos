@@ -12,23 +12,31 @@ export default function EventsMap({ coordinates, events }) {
   const map = useRef(null);
   const [lng, setLng] = useState(Number(coordinates.longitude));
   const [lat, setLat] = useState(Number(coordinates.latitude));
-  const [zoom, setZoom] = useState(9);
+  const [zoom, setZoom] = useState(4);
 
   async function setMap() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
+      center: [-93.4807, 41.7895],
       zoom: zoom,
     });
-
-    // Create a new marker.
-    const marker1 = new mapboxgl.Marker()
-      .setLngLat([lng, lat])
-      .addTo(map.current);
   }
 
+  function getMarkers() {
+    console.log(coordinates, "<- this is coordinates from get markers");
+
+    console.log("hittter");
+
+    coordinates.forEach((elem) => {
+      console.log(elem, " hello");
+      // creater a new marker
+      new mapboxgl.Marker()
+        .setLngLat([elem.longitude, elem.latitude])
+        .addTo(map.current);
+    });
+  }
   useEffect(() => {
     setMap();
   }, []);
@@ -41,6 +49,10 @@ export default function EventsMap({ coordinates, events }) {
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
+
+  useEffect(() => {
+    getMarkers();
+  }, [coordinates]);
 
   return (
     <div>
