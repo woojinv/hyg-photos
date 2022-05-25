@@ -3,7 +3,6 @@ import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import EventsMap from "../../components/EventsMap/EventsMap";
 import EventGallery from "../../components/EventGallery/EventGallery";
-import { Grid } from "semantic-ui-react";
 import * as eventsAPI from "../../utils/eventApi";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -12,6 +11,8 @@ import usePlacesAutocomplete, {
 
 // React Bootstrap
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
@@ -102,23 +103,21 @@ export default function EventsPage({ user, handleLogout }) {
 
   return (
     <Container fluid>
-      <Grid centered>
-        <Grid.Row>
-          <Grid.Column>
-            <PageHeader user={user} handleLogout={handleLogout} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column>
-            <EventsMap coordinates={coordinates} events={events} />
-            <EventGallery
-              events={events}
-              user={user}
-              deleteEvent={deleteEvent}
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Row>
+        <Col>
+          <PageHeader user={user} handleLogout={handleLogout} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <EventsMap coordinates={coordinates} events={events} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
+        </Col>
+      </Row>
     </Container>
   );
 }
