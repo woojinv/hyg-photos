@@ -37,9 +37,15 @@ export default function EventsMap({ coordinates, events }) {
         .addTo(map.current);
     });
   }
+
   useEffect(() => {
     setMap();
   }, []);
+
+  useEffect(() => {
+    console.log("useEffect is running");
+    getMarkers();
+  }, [coordinates]);
 
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
@@ -49,10 +55,6 @@ export default function EventsMap({ coordinates, events }) {
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
-
-  useEffect(() => {
-    getMarkers();
-  }, [coordinates]);
 
   return (
     <div>

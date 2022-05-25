@@ -24,11 +24,11 @@ export default function EventsPage({ user, handleLogout }) {
         const res = await getGeocode(parameter);
         const { lat, lng } = getLatLng(res[0]);
         coordinatesArray.push({ latitude: lat, longitude: lng });
+        setCoordinates(coordinatesArray);
       } catch (err) {
         console.log(err, "<- this is err from getCoordinates in EventsPage");
       }
     });
-    setCoordinates(coordinatesArray);
   }
 
   async function getEvents() {
