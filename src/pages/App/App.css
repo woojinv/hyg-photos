@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/****      Header     *****/
+.navLink {
+  text-decoration: none;
+  color: rgb(37 37 38);
+  font-size: 1.5rem;
+}
+.navLink:hover {
+  color: #61dafb;
+}

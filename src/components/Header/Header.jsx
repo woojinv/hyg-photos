@@ -1,9 +1,10 @@
 import React from "react";
-import { Segment, Header, Button } from "semantic-ui-react";
+import { Segment, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { findByLabelText } from "@testing-library/react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 import Nav from "react-bootstrap/Nav";
 
@@ -24,31 +25,41 @@ export default function PageHeader({ user, handleLogout }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to="/events">Events</Link>
+              <Link className="navLink" to="/events">
+                Events
+              </Link>
             </Nav.Link>
 
             {user ? (
               <Nav.Link>
-                <Link to="/create">Create an Event</Link>
+                <Link className="navLink" to="/create">
+                  Create
+                </Link>
               </Nav.Link>
             ) : null}
           </Nav>
 
           {user ? (
             <Nav>
-              <Link to="" onClick={handleLogout}>
-                <Button>Log Out</Button>
-              </Link>
+              <Nav.Link>
+                <Link className="navLink" to="" onClick={handleLogout}>
+                  Log Out
+                </Link>
+              </Nav.Link>
             </Nav>
           ) : (
             <Nav>
-              <Link to="/login">
-                <Button>Log In</Button>
-              </Link>
+              <Nav.Link>
+                <Link className="navLink" to="/login">
+                  Log In
+                </Link>
+              </Nav.Link>
 
-              <Link to="/signup">
-                <Button>Sign Up</Button>
-              </Link>
+              <Nav.Link>
+                <Link className="navLink" to="/signup">
+                  Sign Up
+                </Link>
+              </Nav.Link>
             </Nav>
           )}
         </Navbar.Collapse>
