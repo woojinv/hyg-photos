@@ -1,9 +1,10 @@
 import React from "react";
 import EventCard from "../EventCard/EventCard";
+import { Grid, Image } from "semantic-ui-react";
 
 export default function EventGallery({ events, user, deleteEvent }) {
   return (
-    <div className="EventGallery">
+    <Grid>
       {events.map((event, i) => {
         return (
           <EventCard
@@ -14,6 +15,6 @@ export default function EventGallery({ events, user, deleteEvent }) {
           />
         );
       })}
-    </div>
+    </Grid>
   );
 }
