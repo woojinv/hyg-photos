@@ -46,3 +46,13 @@
 .navLink:hover {
   color: #61dafb;
 }
+
+/****     Event Cards    ******/
+.card-link {
+  text-decoration: none;
+  color: rgb(37 37 38);
+}
+
+.card-link:hover {
+  color: darkturquoise;
+}
