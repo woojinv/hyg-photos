@@ -41,46 +41,57 @@ export default function LoginPage(props) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          <Image src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png" />
-          Log-in to your account
-        </Header>
-        <Form autoComplete="off" onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input
-              type="email"
-              name="email"
-              placeholder="email"
-              value={state.email}
-              onChange={handleChange}
-              required
-            />
-            <Form.Input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={state.password}
-              onChange={handleChange}
-              required
-            />
-            <Button
-              color="teal"
-              fluid
-              size="large"
-              type="submit"
-              className="btn"
-            >
-              Login
-            </Button>
-          </Segment>
-        </Form>
-        <Message>
-          New to us? <Link to="/signup">Sign Up</Link>
-        </Message>
-        {error ? <ErrorMessage error={error} /> : null}
-      </Grid.Column>
-    </Grid>
+    <>
+      <Grid
+        textAlign="center"
+        style={{ height: "100vh" }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h2" color="teal" textAlign="center">
+            <Link to="/">
+              <img
+                style={{ width: "75px" }}
+                src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+              />
+            </Link>{" "}
+            Log-in to your account
+          </Header>
+          <Form autoComplete="off" onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Form.Input
+                type="email"
+                name="email"
+                placeholder="email"
+                value={state.email}
+                onChange={handleChange}
+                required
+              />
+              <Form.Input
+                type="password"
+                name="password"
+                placeholder="password"
+                value={state.password}
+                onChange={handleChange}
+                required
+              />
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                type="submit"
+                className="btn"
+              >
+                Login
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            New to us? <Link to="/signup">Sign Up</Link>
+          </Message>
+          {error ? <ErrorMessage error={error} /> : null}
+        </Grid.Column>
+      </Grid>
+    </>
   );
 }
