@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "../LandingPage/LandingPage";
 import EventsPage from "../EventsPage/EventsPage";
 import CreateEventPage from "../CreatePage/CreateEventPage";
