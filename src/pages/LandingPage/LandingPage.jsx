@@ -28,7 +28,11 @@ export default function LandingPage({ user, handleLogout }) {
             <Card.Img
               src="https://i.imgur.com/tywnHZX.jpg"
               alt="collage of students"
-              style={{ opacity: 0.2, maxHeight: 800, objectFit: "cover" }}
+              style={{
+                opacity: 0.2,
+                maxHeight: 800,
+                objectFit: "cover",
+              }}
             />
             <Card.ImgOverlay
               onClick={() => setModalShow(true)}
@@ -37,6 +41,7 @@ export default function LandingPage({ user, handleLogout }) {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                cursor: "pointer",
               }}
             >
               <Card.Title>

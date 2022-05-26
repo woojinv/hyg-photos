@@ -20,7 +20,12 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
       <>
         <Card
           className="shadow-1-strong"
-          style={{ width: "40rem", marginBottom: "1rem", MarginTop: "1rem" }}
+          style={{
+            width: "40rem",
+            marginBottom: "1rem",
+            MarginTop: "1rem",
+            cursor: "pointer",
+          }}
           onClick={() => setModalShow(true)}
         >
           <Card.Img variant="top" src={photo.photoUrl} />
@@ -56,7 +61,12 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
     <>
       <Card
         className="shadow-1-strong"
-        style={{ width: "40rem", marginBottom: "1rem", MarginTop: "1rem" }}
+        style={{
+          width: "40rem",
+          marginBottom: "1rem",
+          MarginTop: "1rem",
+          cursor: "pointer",
+        }}
         onClick={() => setModalShow(true)}
       >
         <Card.Img variant="top" src={photo.photoUrl} />

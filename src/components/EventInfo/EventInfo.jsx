@@ -29,6 +29,7 @@ export default function EventInfo({
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
+            cursor: "pointer",
           }}
         >
           <Card.Title>{date}</Card.Title>
