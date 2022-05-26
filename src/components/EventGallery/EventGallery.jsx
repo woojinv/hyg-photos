@@ -9,11 +9,11 @@ import Col from "react-bootstrap/Col";
 
 export default function EventGallery({ events, user, deleteEvent }) {
   return (
-    <Container>
+    <Container className="events-container">
       <Row>
         {events.map((event, i) => {
           return (
-            <Col>
+            <Col className="events-column">
               <EventCard
                 event={event}
                 key={i}

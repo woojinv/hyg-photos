@@ -10,14 +10,14 @@ export default function EventsMap({ coordinates, events }) {
   const map = useRef(null);
   const [lng, setLng] = useState(Number(coordinates.longitude));
   const [lat, setLat] = useState(Number(coordinates.latitude));
-  const [zoom, setZoom] = useState(4);
+  const [zoom, setZoom] = useState(5);
 
   async function setMap() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [-93.4807, 41.7895],
+      center: [-88.6862, 44.1844],
       zoom: zoom,
     });
   }
