@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import App from "./pages/App/App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
