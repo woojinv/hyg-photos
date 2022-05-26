@@ -18,6 +18,12 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 
+// Bootstrap
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+
 export default function ViewEventPage({ user, handleLogout, editEvent }) {
   const { eventTitle } = useParams();
   const [loading, setLoading] = useState(true);
@@ -127,16 +133,34 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
 
   if (user) {
     return (
-      <>
-        <PageHeader user={user} handleLogout={handleLogout} />
-        <h1>This is the View Event Page</h1>
-        {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+      <Container>
+        <Row>
+          <Col>
+            <PageHeader user={user} handleLogout={handleLogout} />
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h1 style={{ display: "inline" }}>{event.title}</h1>
 
-        {user._id === event?.user ? (
-          <Link to={`/${event?.title}/edit`}>
-            <Icon name="edit" size="large" onClick={handleClick} />
-          </Link>
-        ) : null}
+            {user._id === event?.user ? (
+              <Link to={`/${event?.title}/edit`}>
+                <Button onClick={handleClick}>Edit</Button>
+              </Link>
+            ) : null}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+          </Col>
+        </Row>
 
         <EventInfo
           title={event?.title}
@@ -148,7 +172,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
         />
         <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
         <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
-      </>
+      </Container>
     );
   }
 
