@@ -18,11 +18,15 @@ export default function EventInfo({
         alt={"Picture of" + title}
         style={{ opacity: 0.2, maxHeight: 400, objectFit: "cover" }}
       />
-      <Card.ImgOverlay>
-        <Card.Title>{title}</Card.Title>
+      <Card.ImgOverlay
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Card.Title>{date}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Card.Text>Location: {location}</Card.Text>
-        <Card.Text>Date: {date}</Card.Text>
       </Card.ImgOverlay>
     </Card>
   );
