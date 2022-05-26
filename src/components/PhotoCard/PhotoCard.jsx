@@ -7,7 +7,8 @@ import Button from "react-bootstrap/Button";
 
 export default function PhotoCard({ photo, user, deletePhoto }) {
   function handleClick(e) {
-    const photoId = e.target.attributes[0].value;
+    console.log(e.target.attributes, "attributes");
+    const photoId = e.target.attributes[1].value;
     deletePhoto(photoId);
   }
 
