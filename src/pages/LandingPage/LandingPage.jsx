@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/Header/Header";
 import PhotoModal from "../../components/PhotoModal/PhotoModal";
+import Footer from "../../components/Footer/Footer";
 import { Grid, Header, Message } from "semantic-ui-react";
 
 // bootstrap
@@ -56,6 +57,12 @@ export default function LandingPage({ user, handleLogout }) {
         photo="https://i.imgur.com/tywnHZX.jpg"
         onHide={() => setModalShow(false)}
       />
+
+      <Row>
+        <Col>
+          <Footer />
+        </Col>
+      </Row>
     </Container>
   );
 }
