@@ -198,21 +198,40 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   }
 
   return (
-    <>
-      <PageHeader user={user} handleLogout={handleLogout} />
-      <h1>This is the View Event Page</h1>
-      {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+    <Container>
+      <Row>
+        <Col>
+          <PageHeader user={user} handleLogout={handleLogout} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h1>{event.title}</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+        </Col>
+      </Row>
 
-      <EventInfo
-        title={event?.title}
-        description={event.description}
-        location={event.location}
-        date={event.date}
-        photoUrl={event.photoUrl}
-        id={event._id}
-      />
-
-      <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
-    </>
+      <Row>
+        <Col>
+          <EventInfo
+            title={event?.title}
+            description={event.description}
+            location={event.location}
+            date={event.date}
+            photoUrl={event.photoUrl}
+            id={event._id}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
