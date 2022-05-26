@@ -193,7 +193,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             />
           </Col>
         </Row>
-
+        <br />
         <Row>
           <Col>
             <PhotoGallery
@@ -244,6 +244,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
           />
         </Col>
       </Row>
+      <br />
       <Row>
         <Col>
           <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
