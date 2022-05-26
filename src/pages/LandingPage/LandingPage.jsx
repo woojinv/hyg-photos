@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/Header/Header";
+import PhotoModal from "../../components/PhotoModal/PhotoModal";
 import { Grid, Header, Message } from "semantic-ui-react";
 
 // bootstrap
@@ -11,6 +12,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function LandingPage({ user, handleLogout }) {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <Container>
       <Row>
@@ -27,6 +30,7 @@ export default function LandingPage({ user, handleLogout }) {
               style={{ opacity: 0.2, maxHeight: 800, objectFit: "cover" }}
             />
             <Card.ImgOverlay
+              onClick={() => setModalShow(true)}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -46,6 +50,12 @@ export default function LandingPage({ user, handleLogout }) {
           </Card>
         </Col>
       </Row>
+
+      <PhotoModal
+        show={modalShow}
+        photo="https://i.imgur.com/tywnHZX.jpg"
+        onHide={() => setModalShow(false)}
+      />
     </Container>
   );
 }
