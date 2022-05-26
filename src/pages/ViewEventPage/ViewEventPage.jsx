@@ -138,6 +138,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             <PageHeader user={user} handleLogout={handleLogout} />
           </Col>
         </Row>
+        <br />
         <Row>
           <Col
             style={{
@@ -150,18 +151,21 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
 
             {user._id === event?.user ? (
               <Link to={`/${event?.title}/edit`}>
-                <Button onClick={handleClick}>Edit</Button>
+                <Button size="lg" onClick={handleClick}>
+                  Edit
+                </Button>
               </Link>
             ) : null}
           </Col>
         </Row>
+        <br />
         <Row>
           <Col>
             <h3>{event.location}</h3>
           </Col>
         </Row>
 
-        <Row>
+        <Row style={{ marginTop: ".5rem" }}>
           <Col>
             {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
           </Col>
