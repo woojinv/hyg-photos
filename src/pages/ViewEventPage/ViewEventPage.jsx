@@ -157,6 +157,12 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
         </Row>
         <Row>
           <Col>
+            <h3>{event.location}</h3>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
             {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
           </Col>
         </Row>
