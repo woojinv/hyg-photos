@@ -20,7 +20,6 @@ export default function EventCard({ event, user, deleteEvent }) {
         <Link className="card-link" to={`/${event.title}`}>
           <Card.Img variant="top" src={event.photoUrl} />
         </Link>
-
         <Card.Body>
           <Link className="card-link" to={`/${event.title}`}>
             <Card.Title>{event.title}</Card.Title>
