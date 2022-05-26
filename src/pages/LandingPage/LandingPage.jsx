@@ -16,7 +16,7 @@ export default function LandingPage({ user, handleLogout }) {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <Container>
+    <Container className="shadow-5-strong">
       <Row>
         <Col>
           <PageHeader user={user} handleLogout={handleLogout} />
@@ -24,7 +24,7 @@ export default function LandingPage({ user, handleLogout }) {
       </Row>
       <Row>
         <Col>
-          <Card className="bg-dark text-white">
+          <Card className="bg-dark text-white shadow-5-strong">
             <Card.Img
               src="https://i.imgur.com/tywnHZX.jpg"
               alt="collage of students"

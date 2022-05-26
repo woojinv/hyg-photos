@@ -49,7 +49,7 @@ export default function EventsMap({ coordinates, events }) {
   });
 
   return (
-    <div ref={mapContainer} className="map-container shadow-5-strong">
+    <div ref={mapContainer} className="map-container shadow-2-strong">
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>

@@ -103,7 +103,7 @@ export default function EventsPage({ user, handleLogout }) {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className="shadow-5-strong">
       <Row>
         <Col>
           <PageHeader user={user} handleLogout={handleLogout} />

@@ -15,7 +15,10 @@ export default function EventInfo({
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
-      <Card className="bg-dark text-white" onClick={() => setModalShow(true)}>
+      <Card
+        className="bg-dark text-white shadow-5-strong"
+        onClick={() => setModalShow(true)}
+      >
         <Card.Img
           src={photoUrl}
           alt={"Picture of" + title}

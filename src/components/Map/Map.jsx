@@ -44,7 +44,7 @@ export default function Map({ coordinates }) {
     <div>
       <div
         ref={mapContainer}
-        className="map-container shadow-5-strong"
+        className="map-container shadow-2-strong"
         style={{ height: 200 }}
       >
         <div className="sidebar">

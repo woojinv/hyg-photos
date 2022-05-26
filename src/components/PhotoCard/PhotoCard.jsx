@@ -19,6 +19,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
     return (
       <>
         <Card
+          className="shadow-1-strong"
           style={{ width: "40rem", marginBottom: "1rem", MarginTop: "1rem" }}
           onClick={() => setModalShow(true)}
         >
@@ -54,6 +55,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
   return (
     <>
       <Card
+        className="shadow-1-strong"
         style={{ width: "40rem", marginBottom: "1rem", MarginTop: "1rem" }}
         onClick={() => setModalShow(true)}
       >

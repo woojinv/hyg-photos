@@ -16,7 +16,10 @@ export default function EventCard({ event, user, deleteEvent }) {
 
   if (user) {
     return (
-      <Card style={{ width: "20rem", marginBottom: "1rem" }}>
+      <Card
+        style={{ width: "20rem", marginBottom: "1rem" }}
+        className="shadow-1-strong"
+      >
         <Link className="card-link" to={`/${event.title}`}>
           <Card.Img variant="top" src={event.photoUrl} />
         </Link>
@@ -41,7 +44,10 @@ export default function EventCard({ event, user, deleteEvent }) {
   }
 
   return (
-    <Card style={{ width: "20rem", marginBottom: "1rem" }}>
+    <Card
+      style={{ width: "20rem", marginBottom: "1rem" }}
+      className="shadow-1-strong"
+    >
       <Link className="card-link" to={`/${event.title}`}>
         <Card.Img variant="top" src={event.photoUrl} />
         <Card.Body>
