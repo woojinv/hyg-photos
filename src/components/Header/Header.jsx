@@ -7,7 +7,7 @@ import Nav from "react-bootstrap/Nav";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
-    <Navbar bg="light" expand="lg" fixed="top">
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand>
           <Link to="/">

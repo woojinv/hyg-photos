@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Map from "../../components/Map/Map";
 import PageHeader from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import Loading from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
@@ -203,6 +204,11 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             />
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <Footer />
+          </Col>
+        </Row>
       </Container>
     );
   }
@@ -248,6 +254,11 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
       <Row>
         <Col>
           <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Footer />
         </Col>
       </Row>
     </Container>
