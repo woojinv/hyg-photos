@@ -42,7 +42,7 @@ export default function Map({ coordinates }) {
 
   return (
     <div>
-      <div ref={mapContainer} className="map-container">
+      <div ref={mapContainer} className="map-container" style={{ height: 200 }}>
         <div className="sidebar">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
