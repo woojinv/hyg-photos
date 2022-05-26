@@ -64,3 +64,9 @@
 .card-link:hover {
   color: darkturquoise;
 }
+
+/******** photos ******/
+.photos-column {
+  display: flex;
+  justify-content: center;
+}
