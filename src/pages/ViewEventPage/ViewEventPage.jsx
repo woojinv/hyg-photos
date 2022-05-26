@@ -161,16 +161,38 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
           </Col>
         </Row>
 
-        <EventInfo
-          title={event?.title}
-          description={event.description}
-          location={event.location}
-          date={event.date}
-          photoUrl={event.photoUrl}
-          id={event._id}
-        />
-        <AddPhotoForm handleAddPhoto={handleAddPhoto} title={event?.title} />
-        <PhotoGallery photos={photos} user={user} deletePhoto={deletePhoto} />
+        <Row>
+          <Col>
+            <EventInfo
+              title={event?.title}
+              description={event.description}
+              location={event.location}
+              date={event.date}
+              photoUrl={event.photoUrl}
+              id={event._id}
+            />
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <h2>Add a Photo to this Event!</h2>
+            <AddPhotoForm
+              handleAddPhoto={handleAddPhoto}
+              title={event?.title}
+            />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <PhotoGallery
+              photos={photos}
+              user={user}
+              deletePhoto={deletePhoto}
+            />
+          </Col>
+        </Row>
       </Container>
     );
   }
