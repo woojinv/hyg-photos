@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { Form, Button } from "semantic-ui-react";
+
 import { useParams } from "react-router-dom";
+
+// Bootstrap
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default function AddPhotoForm({ handleAddPhoto, title }) {
   const { eventTitle } = useParams;
@@ -20,17 +24,26 @@ export default function AddPhotoForm({ handleAddPhoto, title }) {
   }
 
   return (
-    <Form autoComplete="off" onSubmit={handleSubmit}>
-      <Form.Input
+    <Form.Group
+      autoComplete="off"
+      controlId="formFile"
+      className="mb-3"
+      style={{ maxWidth: 450 }}
+    >
+      <Form.Control
         className="form-control"
         type="file"
         name="photo"
-        placeholder="upload image"
         onChange={handleFileInput}
       />
-      <Button type="submit" className="btn">
-        Add Photo
-      </Button>
-    </Form>
+
+      <Button
+        as="input"
+        type="submit"
+        value="Submit"
+        onClick={handleSubmit}
+        style={{ marginTop: "1rem" }}
+      />
+    </Form.Group>
   );
 }

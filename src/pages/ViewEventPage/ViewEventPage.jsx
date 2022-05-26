@@ -210,12 +210,19 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
           <PageHeader user={user} handleLogout={handleLogout} />
         </Col>
       </Row>
+      <br />
       <Row>
-        <Col>
+        <Col style={{ textAlign: "center" }}>
           <h1>{event.title}</h1>
         </Col>
       </Row>
+      <br />
       <Row>
+        <Col>
+          <h3>{event.location}</h3>
+        </Col>
+      </Row>
+      <Row style={{ marginTop: ".5rem" }}>
         <Col>
           {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
         </Col>
