@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
 import Map from "../../components/Map/Map";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
