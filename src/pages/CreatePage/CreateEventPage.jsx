@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
+import Loading from "../../components/Loader/Loader";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +16,7 @@ import * as eventsAPI from "../../utils/eventApi";
 export default function CreatePage({ user, handleLogout, handleSubmit }) {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     title: "",
@@ -35,8 +37,10 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
     }
 
     try {
+      setLoading(true);
       const data = await eventsAPI.create(formData);
       console.log(data, "<- this is data from handleSubmit in CreateEventpage");
+      setLoading(false);
       navigate("/events");
     } catch (err) {
       setError(err.message);
@@ -121,6 +125,15 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
         </li>
       );
     });
+
+  if (loading) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <Loading />
+      </>
+    );
+  }
 
   return (
     <Grid centered>
