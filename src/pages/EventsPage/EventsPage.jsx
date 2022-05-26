@@ -3,6 +3,7 @@ import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import EventsMap from "../../components/EventsMap/EventsMap";
 import EventGallery from "../../components/EventGallery/EventGallery";
+import Footer from "../../components/Footer/Footer";
 import * as eventsAPI from "../../utils/eventApi";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -116,6 +117,11 @@ export default function EventsPage({ user, handleLogout }) {
       <Row>
         <Col>
           <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Footer />
         </Col>
       </Row>
     </Container>
