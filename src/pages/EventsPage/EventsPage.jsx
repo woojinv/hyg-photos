@@ -23,21 +23,7 @@ export default function EventsPage({ user, handleLogout }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // async function getCoordinates() {
-  //   const coordinatesArray = [];
-  //   events.map(async (event) => {
-  //     const parameter = { address: event.location };
-  //     try {
-  //       const res = await getGeocode(parameter);
-  //       const { lat, lng } = getLatLng(res[0]);
-  //       coordinatesArray.push({ latitude: lat, longitude: lng });
-  //       setCoordinates(coordinatesArray);
-  //     } catch (err) {
-  //       console.log(err, "<- this is err from getCoordinates in EventsPage");
-  //     }
-  //   });
-  // }
-
+  // fav function 1
   async function getCoordinates() {
     const coordinatesArray = [];
     const promises = events.map((event) => {
@@ -55,11 +41,6 @@ export default function EventsPage({ user, handleLogout }) {
     } catch (err) {
       console.log(err, "<- this is err from getCoordinates");
     }
-
-    // const { lat, lng } = getLatLng(res[0]);
-    // coordinatesArray.push({ latitude: lat, longitude: lng });
-
-    // setCoordinates(coordinatesArray);
   }
 
   async function getEvents() {

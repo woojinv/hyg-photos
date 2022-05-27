@@ -22,6 +22,7 @@ export default function EventsMap({ coordinates, events }) {
     });
   }
 
+  // fav function 2
   function getMarkers() {
     coordinates.forEach((elem) => {
       // creater a new marker
