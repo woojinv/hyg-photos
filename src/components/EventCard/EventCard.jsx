@@ -27,6 +27,8 @@ export default function EventCard({ event, user, deleteEvent }) {
           <Link className="card-link" to={`/${event.title}`}>
             <Card.Title>{event.title}</Card.Title>
             <Card.Text>{event.description}</Card.Text>
+            <Card.Text>{event.location}</Card.Text>
+            <Card.Text>{event.date}</Card.Text>
           </Link>
           <br />
           {event.user._id === user._id ? (
