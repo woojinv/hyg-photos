@@ -1,15 +1,15 @@
 import React from "react";
-import { Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
+// CSS
 import "../../pages/EventsPage/EventsPage.css";
-// bootstrap
+
+// Bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function EventCard({ event, user, deleteEvent }) {
   function handleClick(e) {
-    console.log(e.target.attributes, "<- this is e.target");
     e.stopPropagation();
     const eventId = e.target.attributes[1].value;
     deleteEvent(eventId);
