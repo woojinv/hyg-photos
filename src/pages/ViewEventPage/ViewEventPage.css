@@ -17,3 +17,11 @@
   margin: 12px;
   border-radius: 4px;
 }
+
+p {
+  font-size: 1.5rem;
+}
+
+.event-info-date {
+  font-size: 2rem;
+}

@@ -32,7 +32,7 @@ export default function EventInfo({
             cursor: "pointer",
           }}
         >
-          <Card.Title>{date}</Card.Title>
+          <Card.Title className="event-info-date">{date}</Card.Title>
           <Card.Text>{description}</Card.Text>
         </Card.ImgOverlay>
       </Card>
