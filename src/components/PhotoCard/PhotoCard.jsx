@@ -28,7 +28,11 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
           }}
           onClick={() => setModalShow(true)}
         >
-          <Card.Img variant="top" src={photo.photoUrl} />
+          <Card.Img
+            variant="top"
+            src={photo.photoUrl}
+            style={{ height: 400, objectFit: "cover" }}
+          />
           <Card.Body
             style={{
               display: "flex",
@@ -69,7 +73,11 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
         }}
         onClick={() => setModalShow(true)}
       >
-        <Card.Img variant="top" src={photo.photoUrl} />
+        <Card.Img
+          variant="top"
+          src={photo.photoUrl}
+          style={{ height: 400, objectFit: "cover" }}
+        />
       </Card>
       <PhotoModal
         show={modalShow}
