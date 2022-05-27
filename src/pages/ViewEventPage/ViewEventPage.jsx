@@ -214,7 +214,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   }
 
   return (
-    <Container>
+    <Container className="shadow-5-strong">
       <Row>
         <Col>
           <PageHeader user={user} handleLogout={handleLogout} />

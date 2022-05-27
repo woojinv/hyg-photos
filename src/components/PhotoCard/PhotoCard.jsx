@@ -19,7 +19,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
     return (
       <>
         <Card
-          className="shadow-1-strong"
+          className="shadow-3-strong"
           style={{
             width: "40rem",
             marginBottom: "1rem",
@@ -60,7 +60,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
   return (
     <>
       <Card
-        className="shadow-1-strong"
+        className="shadow-3-strong"
         style={{
           width: "40rem",
           marginBottom: "1rem",

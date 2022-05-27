@@ -22,13 +22,19 @@ export default function Footer() {
                 href="https://linktr.ee/HebronYouthGroup"
                 target="_blank"
               >
-                linktree
+                Linktree
               </Nav.Link>
               <Nav.Link
                 href="https://www.instagram.com/hebron.yg/"
                 target="_blank"
               >
                 Instagram
+              </Nav.Link>
+              <Nav.Link
+                href="https://discord.com/invite/2UAYCCPFW8"
+                target="_blank"
+              >
+                Discord
               </Nav.Link>
               <Nav.Link href="mailto:hebronacts@gmail.com" target="_blank">
                 Email
