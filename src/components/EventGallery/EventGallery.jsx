@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function EventGallery({ events, user, deleteEvent }) {
+  console.log(events, "<- this is events should be sorted");
   return (
     <Container className="events-container">
       <Row>

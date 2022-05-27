@@ -17,6 +17,7 @@ import Col from "react-bootstrap/Col";
 
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
+
   const [coordinates, setCoordinates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -64,6 +65,7 @@ export default function EventsPage({ user, handleLogout }) {
     try {
       const data = await eventsAPI.getAll();
       console.log(data, "<- this is data from getEvents");
+
       setEvents(data.events);
       setLoading(false);
     } catch (err) {
