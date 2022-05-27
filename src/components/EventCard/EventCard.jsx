@@ -55,6 +55,8 @@ export default function EventCard({ event, user, deleteEvent }) {
         <Card.Body>
           <Card.Title>{event.title}</Card.Title>
           <Card.Text>{event.description}</Card.Text>
+          <Card.Text>{event.location}</Card.Text>
+          <Card.Text>{event.date}</Card.Text>
         </Card.Body>
       </Link>
     </Card>
