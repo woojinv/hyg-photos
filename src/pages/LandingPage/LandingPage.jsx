@@ -45,7 +45,7 @@ export default function LandingPage({ user, handleLogout }) {
               }}
             >
               <Card.Title>
-                <h1>Hebron Youth Group</h1>
+                <h1 id="landing-page-title">Hebron Youth Group</h1>
               </Card.Title>
               <Card.Text>
                 <Link to="/events">

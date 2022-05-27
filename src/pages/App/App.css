@@ -38,8 +38,13 @@
 }
 
 /***** Typography ********/
-* {
+*,
+#landing-page-title {
   font-family: "Mali", cursive;
+}
+
+#landing-page-title {
+  font-size: 6rem;
 }
 
 /****      Header     *****/
