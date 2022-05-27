@@ -41,6 +41,14 @@ export default function Footer() {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <Nav>
+            <Nav.Link
+              href="https://www.linkedin.com/in/woojin-oh/"
+              target="_blank"
+            >
+              Created by Woojin Oh
+            </Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
     </>
