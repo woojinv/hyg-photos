@@ -131,6 +131,15 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
       );
     });
 
+  if (error) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <h1>{error}</h1>
+      </>
+    );
+  }
+
   if (loading) {
     return (
       <>
