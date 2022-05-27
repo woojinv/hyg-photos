@@ -49,7 +49,9 @@ export default function LandingPage({ user, handleLogout }) {
               </Card.Title>
               <Card.Text>
                 <Link to="/events">
-                  <Button variant="outline-light">Get Started</Button>
+                  <Button variant="outline-light" size="lg">
+                    Get Started
+                  </Button>
                 </Link>
               </Card.Text>
             </Card.ImgOverlay>
