@@ -27,9 +27,6 @@ export default function EventCard({ event, user, deleteEvent }) {
         <Card.Body>
           <Link className="card-link" to={`/${event.title}`}>
             <Card.Title className="event-card-title">{event.title}</Card.Title>
-            <Card.Text>{event.description}</Card.Text>
-            <Card.Text>{event.location}</Card.Text>
-            <Card.Text>{event.date}</Card.Text>
           </Link>
           <br />
           {event.user._id === user._id ? (
@@ -55,9 +52,6 @@ export default function EventCard({ event, user, deleteEvent }) {
         <Card.Img variant="top" src={event.photoUrl} />
         <Card.Body>
           <Card.Title className="event-card-title">{event.title}</Card.Title>
-          <Card.Text>{event.description}</Card.Text>
-          <Card.Text>{event.location}</Card.Text>
-          <Card.Text>{event.date}</Card.Text>
         </Card.Body>
       </Link>
     </Card>
