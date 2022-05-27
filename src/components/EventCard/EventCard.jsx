@@ -22,9 +22,19 @@ export default function EventCard({ event, user, deleteEvent }) {
         className="shadow-1-strong"
       >
         <Link className="card-link" to={`/${event.title}`}>
-          <Card.Img variant="top" src={event.photoUrl} />
+          <Card.Img
+            variant="top"
+            src={event.photoUrl}
+            style={{ height: 300, objectFit: "cover" }}
+          />
         </Link>
-        <Card.Body>
+        <Card.Body
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+          }}
+        >
           <Link className="card-link" to={`/${event.title}`}>
             <Card.Title className="event-card-title">{event.title}</Card.Title>
             <Card.Text>{event.date}</Card.Text>
@@ -50,12 +60,24 @@ export default function EventCard({ event, user, deleteEvent }) {
       className="shadow-1-strong"
     >
       <Link className="card-link" to={`/${event.title}`}>
-        <Card.Img variant="top" src={event.photoUrl} />
-        <Card.Body>
+        <Card.Img
+          variant="top"
+          src={event.photoUrl}
+          style={{ height: 300, objectFit: "cover" }}
+        />
+      </Link>
+      <Card.Body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Link className="card-link" to={`/${event.title}`}>
           <Card.Title className="event-card-title">{event.title}</Card.Title>
           <Card.Text>{event.date}</Card.Text>
-        </Card.Body>
-      </Link>
+        </Link>
+      </Card.Body>
     </Card>
   );
 }
