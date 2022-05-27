@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Grid, Form, Segment, Button } from "semantic-ui-react";
+import { Grid, Form, Segment, Button, Header } from "semantic-ui-react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import usePlacesAutocomplete, {
   getGeocode,
@@ -121,61 +121,67 @@ export default function EditEventPage({ user, handleLogout, event }) {
   }
 
   return (
-    <Grid centered>
-      <Grid.Row>
-        <Grid.Column>
-          <PageHeader user={user} handleLogout={handleLogout} />
-          <Form
-            style={{ maxWidth: 450 }}
-            autoComplete="off"
-            onSubmit={handleSubmit}
-          >
-            <Segment stacked>
-              <Form.Input
-                type="text"
-                name="title"
-                placeholder={newEvent.title}
-                value={newEvent.title}
-                onChange={handleChange}
-                required
-              />
-              <Form.Input
-                type="text"
-                name="description"
-                placeholder={newEvent.description}
-                value={newEvent.description}
-                onChange={handleChange}
-                required
-              />
-              <Form.Field>
-                <div ref={ref}>
-                  <input
-                    name="location"
-                    value={value}
-                    onChange={handleChange}
-                    disabled={!ready}
-                    placeholder={newEvent.location}
-                  />
-                  {/* We can use the "status" to decide whether we should display the dropdown or not */}
-                  {status === "OK" && <ul>{renderSuggestions()}</ul>}
-                </div>
-              </Form.Field>
-              <Form.Input
-                type="text"
-                name="date"
-                placeholder={newEvent.date}
-                value={newEvent.date}
-                onChange={handleChange}
-                required
-              />
-              <Button type="submit" className="btn">
-                Submit
-              </Button>
-            </Segment>
-            {error ? <ErrorMessage error={error} /> : null}
-          </Form>
-        </Grid.Column>
-      </Grid.Row>
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" color="teal" textAlign="center">
+          <Link to="/">
+            <img
+              style={{ width: "75px" }}
+              src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+            />
+          </Link>{" "}
+          Edit this Event
+        </Header>{" "}
+        <Form
+          style={{ maxWidth: 450 }}
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <Segment stacked>
+            <Form.Input
+              type="text"
+              name="title"
+              placeholder={newEvent.title}
+              value={newEvent.title}
+              onChange={handleChange}
+              required
+            />
+            <Form.Input
+              type="text"
+              name="description"
+              placeholder={newEvent.description}
+              value={newEvent.description}
+              onChange={handleChange}
+              required
+            />
+            <Form.Field>
+              <div ref={ref}>
+                <input
+                  name="location"
+                  value={value}
+                  onChange={handleChange}
+                  disabled={!ready}
+                  placeholder={newEvent.location}
+                />
+                {/* We can use the "status" to decide whether we should display the dropdown or not */}
+                {status === "OK" && <ul>{renderSuggestions()}</ul>}
+              </div>
+            </Form.Field>
+            <Form.Input
+              type="text"
+              name="date"
+              placeholder={newEvent.date}
+              value={newEvent.date}
+              onChange={handleChange}
+              required
+            />
+            <Button type="submit" className="btn">
+              Submit
+            </Button>
+          </Segment>
+          {error ? <ErrorMessage error={error} /> : null}
+        </Form>
+      </Grid.Column>
     </Grid>
   );
 }

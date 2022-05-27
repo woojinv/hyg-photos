@@ -1,12 +1,13 @@
 .map-container {
   height: 400px;
   margin: 0 auto;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
-  color: #fff;
+  background-color: rgba(237, 237, 237, 0.9);
+  color: rgb(52 51 50);
   padding: 6px 12px;
   font-family: monospace;
   z-index: 1;

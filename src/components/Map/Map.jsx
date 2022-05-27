@@ -16,7 +16,7 @@ export default function Map({ coordinates }) {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/light-v10",
       center: [lng, lat],
       zoom: zoom,
     });
@@ -42,7 +42,11 @@ export default function Map({ coordinates }) {
 
   return (
     <div>
-      <div ref={mapContainer} className="map-container" style={{ height: 200 }}>
+      <div
+        ref={mapContainer}
+        className="map-container shadow-2-strong"
+        style={{ height: 200 }}
+      >
         <div className="sidebar">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>

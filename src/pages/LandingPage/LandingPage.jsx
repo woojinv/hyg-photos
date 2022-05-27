@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/Header/Header";
+import PhotoModal from "../../components/PhotoModal/PhotoModal";
+import Footer from "../../components/Footer/Footer";
 import { Grid, Header, Message } from "semantic-ui-react";
 
 // bootstrap
@@ -11,8 +13,10 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function LandingPage({ user, handleLogout }) {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
-    <Container>
+    <Container className="shadow-5-strong">
       <Row>
         <Col>
           <PageHeader user={user} handleLogout={handleLogout} />
@@ -20,18 +24,24 @@ export default function LandingPage({ user, handleLogout }) {
       </Row>
       <Row>
         <Col>
-          <Card className="bg-dark text-white">
+          <Card className="bg-dark text-white shadow-5-strong">
             <Card.Img
               src="https://i.imgur.com/tywnHZX.jpg"
               alt="collage of students"
-              style={{ opacity: 0.2, maxHeight: 800, objectFit: "cover" }}
+              style={{
+                opacity: 0.2,
+                maxHeight: 800,
+                objectFit: "cover",
+              }}
             />
             <Card.ImgOverlay
+              onClick={() => setModalShow(true)}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
+                cursor: "pointer",
               }}
             >
               <Card.Title>
@@ -44,6 +54,18 @@ export default function LandingPage({ user, handleLogout }) {
               </Card.Text>
             </Card.ImgOverlay>
           </Card>
+        </Col>
+      </Row>
+
+      <PhotoModal
+        show={modalShow}
+        photo="https://i.imgur.com/tywnHZX.jpg"
+        onHide={() => setModalShow(false)}
+      />
+
+      <Row>
+        <Col>
+          <Footer />
         </Col>
       </Row>
     </Container>

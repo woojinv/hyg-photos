@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
-import { Button, Form, Grid, Segment } from "semantic-ui-react";
-import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loader/Loader";
+import { Button, Form, Grid, Segment, Header } from "semantic-ui-react";
+import { useNavigate, Link } from "react-router-dom";
 
 import usePlacesAutocomplete, {
   getGeocode,
@@ -12,9 +13,15 @@ import useOnclickOutside from "react-cool-onclickoutside";
 
 import * as eventsAPI from "../../utils/eventApi";
 
+// bootstrap
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 export default function CreatePage({ user, handleLogout, handleSubmit }) {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     title: "",
@@ -35,8 +42,10 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
     }
 
     try {
+      setLoading(true);
       const data = await eventsAPI.create(formData);
       console.log(data, "<- this is data from handleSubmit in CreateEventpage");
+      setLoading(false);
       navigate("/events");
     } catch (err) {
       setError(err.message);
@@ -122,33 +131,48 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
       );
     });
 
+  if (loading) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <Loading />
+      </>
+    );
+  }
+
   return (
-    <Grid centered>
-      <Grid.Row>
-        <Grid.Column>
-          <PageHeader user={user} handleLogout={handleLogout} />
-          <h1>This is the Create Event Page</h1>
-          <Form
-            style={{ maxWidth: 450 }}
-            autoComplete="off"
-            onSubmit={handleSubmit}
-          >
-            <Segment stacked>
-              <Form.Input
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={state.title}
-                onChange={handleChange}
-                required
-              />
-              <Form.TextArea
-                label="Description"
-                name="description"
-                placeholder="Add a brief description of your event or details others may find useful"
-                onChange={handleChange}
-              />
-              {/* <Form.Input
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" color="teal" textAlign="center">
+          <Link to="/">
+            <img
+              style={{ width: "75px" }}
+              src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+            />
+          </Link>{" "}
+          Create an Event
+        </Header>{" "}
+        <Form
+          style={{ maxWidth: 450 }}
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <Segment stacked>
+            <Form.Input
+              type="text"
+              name="title"
+              placeholder="Title"
+              value={state.title}
+              onChange={handleChange}
+              required
+            />
+            <Form.TextArea
+              label="Description"
+              name="description"
+              placeholder="Add a brief description of your event or details others may find useful"
+              onChange={handleChange}
+            />
+            {/* <Form.Input
                 type="text"
                 name="location"
                 placeholder="Location"
@@ -156,43 +180,42 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                 onChange={handleChange}
                 required
               /> */}
-              <Form.Field>
-                <div ref={ref}>
-                  <input
-                    name="location"
-                    value={value}
-                    onChange={handleChange}
-                    disabled={!ready}
-                    placeholder="Where did this event take place?"
-                  />
-                  {/* We can use the "status" to decide whether we should display the dropdown or not */}
-                  {status === "OK" && <ul>{renderSuggestions()}</ul>}
-                </div>
-              </Form.Field>
-              <Form.Input
-                type="text"
-                name="date"
-                placeholder="Date"
-                value={state.date}
-                onChange={handleChange}
-                required
-              />
-              <Form.Field>
-                <Form.Input
-                  type="file"
-                  name="photo"
-                  placeholder="upload a coverphoto"
-                  onChange={handleFileInput}
+            <Form.Field>
+              <div ref={ref}>
+                <input
+                  name="location"
+                  value={value}
+                  onChange={handleChange}
+                  disabled={!ready}
+                  placeholder="Where did this event take place?"
                 />
-              </Form.Field>
-              <Button type="submit" className="btn">
-                Submit
-              </Button>
-            </Segment>
-            {error ? <ErrorMessage error={error} /> : null}
-          </Form>
-        </Grid.Column>
-      </Grid.Row>
+                {/* We can use the "status" to decide whether we should display the dropdown or not */}
+                {status === "OK" && <ul>{renderSuggestions()}</ul>}
+              </div>
+            </Form.Field>
+            <Form.Input
+              type="text"
+              name="date"
+              placeholder="Date"
+              value={state.date}
+              onChange={handleChange}
+              required
+            />
+            <Form.Field>
+              <Form.Input
+                type="file"
+                name="photo"
+                placeholder="upload a coverphoto"
+                onChange={handleFileInput}
+              />
+            </Form.Field>
+            <Button type="submit" className="btn">
+              Submit
+            </Button>
+          </Segment>
+          {error ? <ErrorMessage error={error} /> : null}
+        </Form>
+      </Grid.Column>
     </Grid>
   );
 }

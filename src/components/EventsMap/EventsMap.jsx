@@ -16,7 +16,7 @@ export default function EventsMap({ coordinates, events }) {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v10",
       center: [-88.6862, 44.1844],
       zoom: zoom,
     });
@@ -49,7 +49,7 @@ export default function EventsMap({ coordinates, events }) {
   });
 
   return (
-    <div ref={mapContainer} className="map-container">
+    <div ref={mapContainer} className="map-container shadow-2-strong">
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>

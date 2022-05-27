@@ -1,16 +1,13 @@
 import React from "react";
-import { Segment, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { findByLabelText } from "@testing-library/react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
 
 import Nav from "react-bootstrap/Nav";
 
 export default function PageHeader({ user, handleLogout }) {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand>
           <Link to="/">
