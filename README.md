@@ -28,13 +28,23 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 ## Screenshots
 
+### Landing Page
+
 ![Landing Page](https://i.imgur.com/HLI8rav.jpg "Landing Page")
+
+### Events Page
 
 ![Events Page](https://i.imgur.com/LjephJ7.jpg "Events Page")
 
+### View Event Page
+
 ![View Event Page](https://i.imgur.com/53WXAF7.jpg "View Event Page")
 
+### Event Photo Gallery
+
 ![Event Photo Gallery](https://i.imgur.com/S8OUAyQ.jpg "Event Photo Gallery")
+
+### Modal View
 
 ![Modal View](https://i.imgur.com/wxlrAf8.jpg "Modal View")
 
