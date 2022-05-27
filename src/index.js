@@ -1,9 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+// Semantic UI
 import "semantic-ui-css/semantic.min.css";
+
+// Mapbox
 import "mapbox-gl/dist/mapbox-gl.css";
+
+// CSS
 import "./index.css";
+
+// MD Bootstrap
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+
 import App from "./pages/App/App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
