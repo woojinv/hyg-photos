@@ -1,6 +1,6 @@
 import React from "react";
 
-//bootstrap
+// Bootstrap
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 

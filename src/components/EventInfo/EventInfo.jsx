@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PhotoModal from "../PhotoModal/PhotoModal";
 
-// css
+// CSS
 import "../../pages/ViewEventPage/ViewEventPage.css";
 
-// bootstrap
+// Bootstrap
 import Card from "react-bootstrap/Card";
 
 export default function EventInfo({

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+
+// Components
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import EventsMap from "../../components/EventsMap/EventsMap";
 import EventGallery from "../../components/EventGallery/EventGallery";
 import Footer from "../../components/Footer/Footer";
-import * as eventsAPI from "../../utils/eventApi";
+
+// Places API
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -15,6 +18,9 @@ import usePlacesAutocomplete, {
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
+// utility functions
+import * as eventsAPI from "../../utils/eventApi";
 
 export default function EventsPage({ user, handleLogout }) {
   const [events, setEvents] = useState([]);
