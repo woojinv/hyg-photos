@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Grid, Form, Segment, Button, Header } from "semantic-ui-react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import PageHeader from "../../components/Header/Header";
+
 import { useNavigate, Link } from "react-router-dom";
 
 import usePlacesAutocomplete, {
@@ -118,6 +118,14 @@ export default function EditEventPage({ user, handleLogout, event }) {
   // if user refreshes page while editing event, redirect to all events
   if (!event.title) {
     navigate("/events");
+  }
+
+  if (error) {
+    return (
+      <>
+        <ErrorMessage error={error} />
+      </>
+    );
   }
 
   return (

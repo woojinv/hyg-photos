@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import EventsMap from "../../components/EventsMap/EventsMap";
 import EventGallery from "../../components/EventGallery/EventGallery";
 import Footer from "../../components/Footer/Footer";
@@ -94,6 +95,15 @@ export default function EventsPage({ user, handleLogout }) {
   useEffect(() => {
     getCoordinates();
   }, [events]);
+
+  if (error) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <ErrorMessage error={error} />
+      </>
+    );
+  }
 
   if (loading) {
     return (

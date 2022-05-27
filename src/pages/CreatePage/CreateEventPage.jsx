@@ -135,7 +135,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
     return (
       <>
         <PageHeader user={user} handleLogout={handleLogout} />
-        <h1>{error}</h1>
+        <ErrorMessage error={error} />
       </>
     );
   }

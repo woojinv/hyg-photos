@@ -38,6 +38,14 @@ export default function SignUpPage(props) {
     }
   }
 
+  if (error) {
+    return (
+      <>
+        <ErrorMessage error={error} />
+      </>
+    );
+  }
+
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>

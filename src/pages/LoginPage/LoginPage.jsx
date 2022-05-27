@@ -40,6 +40,14 @@ export default function LoginPage(props) {
     }
   }
 
+  if (error) {
+    return (
+      <>
+        <ErrorMessage error={error} />
+      </>
+    );
+  }
+
   return (
     <>
       <Grid
