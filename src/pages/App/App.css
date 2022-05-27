@@ -37,6 +37,11 @@
   }
 }
 
+/***** Typography ********/
+* {
+  font-family: "Mali", cursive;
+}
+
 /****      Header     *****/
 .navLink {
   text-decoration: none;
