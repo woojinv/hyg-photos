@@ -2,6 +2,7 @@ import React from "react";
 import { Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
+import "../../pages/EventsPage/EventsPage.css";
 // bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -25,7 +26,7 @@ export default function EventCard({ event, user, deleteEvent }) {
         </Link>
         <Card.Body>
           <Link className="card-link" to={`/${event.title}`}>
-            <Card.Title>{event.title}</Card.Title>
+            <Card.Title className="event-card-title">{event.title}</Card.Title>
             <Card.Text>{event.description}</Card.Text>
             <Card.Text>{event.location}</Card.Text>
             <Card.Text>{event.date}</Card.Text>
@@ -53,7 +54,7 @@ export default function EventCard({ event, user, deleteEvent }) {
       <Link className="card-link" to={`/${event.title}`}>
         <Card.Img variant="top" src={event.photoUrl} />
         <Card.Body>
-          <Card.Title>{event.title}</Card.Title>
+          <Card.Title className="event-card-title">{event.title}</Card.Title>
           <Card.Text>{event.description}</Card.Text>
           <Card.Text>{event.location}</Card.Text>
           <Card.Text>{event.date}</Card.Text>

@@ -146,7 +146,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
               onChange={handleChange}
               required
             />
-            <Form.Input
+            <Form.TextArea
               type="text"
               name="description"
               placeholder={newEvent.description}

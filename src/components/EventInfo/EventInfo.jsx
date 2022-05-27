@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PhotoModal from "../PhotoModal/PhotoModal";
 
+// css
+import "../../pages/ViewEventPage/ViewEventPage.css";
+
 // bootstrap
 import Card from "react-bootstrap/Card";
 
