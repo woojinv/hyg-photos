@@ -30,6 +30,8 @@ async function create(req, res) {
         date: req.body.date,
         photoUrl: data.Location,
       });
+
+      console.log(event.date, "<-- this is date");
       await event.populate("user");
 
       res.status(201).json({ event: event });

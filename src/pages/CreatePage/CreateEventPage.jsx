@@ -194,7 +194,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               </div>
             </Form.Field>
             <Form.Input
-              type="text"
+              type="date"
               name="date"
               placeholder="Date"
               value={state.date}
