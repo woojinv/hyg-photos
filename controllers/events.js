@@ -44,7 +44,11 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const events = await Event.find({}).populate("user").exec();
+    const events = await Event.find({})
+      .sort({ date: "desc" })
+      .populate("user")
+      .exec();
+
     res.status(200).json({ events });
   } catch (err) {
     console.log(err, "<- err from events index controller");
