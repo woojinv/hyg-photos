@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useParams } from "react-router-dom";
 
 // Bootstrap
@@ -7,7 +6,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default function AddPhotoForm({ handleAddPhoto, title }) {
-  const { eventTitle } = useParams;
   const [selectedFile, setSelectedFile] = useState("");
 
   function handleSubmit(e) {
@@ -15,7 +13,6 @@ export default function AddPhotoForm({ handleAddPhoto, title }) {
     const formData = new FormData();
     formData.append("photo", selectedFile);
     formData.append("eventTitle", title);
-    console.log(formData, "<- this is formData from handleSubmit");
     handleAddPhoto(formData);
   }
 
