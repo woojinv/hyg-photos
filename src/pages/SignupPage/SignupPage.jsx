@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
+// Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
+// Semantic UI
+import { Grid, Header, Form, Segment, Button } from "semantic-ui-react";
+
+// utility functions
 import userService from "../../utils/userService";
-import { useNavigate, Link } from "react-router-dom";
-import { Grid, Header, Image, Form, Segment, Button } from "semantic-ui-react";
 
 export default function SignUpPage(props) {
   const navigate = useNavigate();

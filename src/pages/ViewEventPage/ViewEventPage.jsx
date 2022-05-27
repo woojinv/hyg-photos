@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+
+// Components
 import Map from "../../components/Map/Map";
 import PageHeader from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Loading from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-
 import EventInfo from "../../components/EventInfo/EventInfo";
 import PhotoGallery from "../../components/PhotoGallery/PhotoGallery";
 import AddPhotoForm from "../../components/AddPhotoForm/AddPhotoForm";
 
+// utility functions
 import * as eventsAPI from "../../utils/eventApi";
 import * as photosAPI from "../../utils/photoApi";
 
+// places API
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,

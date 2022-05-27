@@ -1,7 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+
+// CSS
 import "./App.css";
+
+// Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
+
+// Page imports
 import LandingPage from "../LandingPage/LandingPage";
 import EventsPage from "../EventsPage/EventsPage";
 import CreateEventPage from "../CreatePage/CreateEventPage";
@@ -9,6 +15,8 @@ import ViewEventPage from "../ViewEventPage/ViewEventPage";
 import EditEventPage from "../EditEventPage/EditEventPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
+
+// utility functions
 import userService from "../../utils/userService";
 
 function App() {
@@ -17,7 +25,6 @@ function App() {
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
-    console.log(user, "<- this is user");
   }
 
   function handleLogout() {

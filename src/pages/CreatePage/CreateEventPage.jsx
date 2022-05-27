@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
+// Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
-import { Button, Form, Grid, Segment, Header } from "semantic-ui-react";
-import { useNavigate, Link } from "react-router-dom";
 
+// Semantic UI
+import { Button, Form, Grid, Segment, Header } from "semantic-ui-react";
+
+// places API
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 
+// Utlity functions
 import * as eventsAPI from "../../utils/eventApi";
-
-// bootstrap
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 export default function CreatePage({ user, handleLogout, handleSubmit }) {
   const navigate = useNavigate();
@@ -181,14 +182,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               placeholder="Add a brief description of your event or details others may find useful"
               onChange={handleChange}
             />
-            {/* <Form.Input
-                type="text"
-                name="location"
-                placeholder="Location"
-                value={state.location}
-                onChange={handleChange}
-                required
-              /> */}
+
             <Form.Field>
               <div ref={ref}>
                 <input

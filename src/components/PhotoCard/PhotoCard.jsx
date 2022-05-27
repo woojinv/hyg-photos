@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { Image, Icon } from "semantic-ui-react";
 import PhotoModal from "../PhotoModal/PhotoModal";
 
-// bootstrap
-import Container from "react-bootstrap/Container";
+// Bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function PhotoCard({ photo, user, deletePhoto }) {
   const [modalShow, setModalShow] = useState(false);
   function handleClick(e) {
-    console.log(e.target.attributes, "attributes");
     const photoId = e.target.attributes[1].value;
     deletePhoto(photoId);
   }

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { Grid, Form, Segment, Button, Header } from "semantic-ui-react";
+import { useNavigate, Link } from "react-router-dom";
+// Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
-import { useNavigate, Link } from "react-router-dom";
+// Semantic UI
+import { Grid, Form, Segment, Button, Header } from "semantic-ui-react";
 
+// Places API
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 
+// utility functions
 import * as eventAPI from "../../utils/eventApi";
 
 export default function EditEventPage({ user, handleLogout, event }) {
@@ -29,7 +32,6 @@ export default function EditEventPage({ user, handleLogout, event }) {
 
     try {
       const data = await eventAPI.editEvent(newEvent);
-      console.log(data, "<- this is data from handleSubmit in EditEventPage");
       setNewEvent(data.event);
       navigate(`/${data.event.title}`);
     } catch (err) {

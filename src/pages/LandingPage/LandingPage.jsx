@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+// Components
 import PageHeader from "../../components/Header/Header";
 import PhotoModal from "../../components/PhotoModal/PhotoModal";
 import Footer from "../../components/Footer/Footer";
-import { Grid, Header, Message } from "semantic-ui-react";
 
 // bootstrap
 import Container from "react-bootstrap/Container";

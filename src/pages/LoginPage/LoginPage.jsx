@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import "./LoginPage.css";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import userService from "../../utils/userService";
 import { useNavigate, Link } from "react-router-dom";
+
+// Components
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+
+// CSS
+import "./LoginPage.css";
+
+// Semantic UI
 import {
   Grid,
   Header,
-  Image,
   Form,
   Segment,
   Button,
   Message,
 } from "semantic-ui-react";
+
+// utility functions
+import userService from "../../utils/userService";
 
 export default function LoginPage(props) {
   const navigate = useNavigate();
