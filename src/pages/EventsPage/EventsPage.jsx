@@ -114,6 +114,7 @@ export default function EventsPage({ user, handleLogout }) {
           <EventsMap coordinates={coordinates} events={events} />
         </Col>
       </Row>
+
       <Row>
         <Col>
           <EventGallery events={events} user={user} deleteEvent={deleteEvent} />

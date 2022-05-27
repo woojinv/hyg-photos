@@ -16,7 +16,7 @@ export default function EventInfo({
   return (
     <>
       <Card
-        className="bg-dark text-white shadow-5-strong"
+        className="bg-dark text-white shadow-2-strong"
         onClick={() => setModalShow(true)}
       >
         <Card.Img

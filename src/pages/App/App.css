@@ -39,7 +39,9 @@
 
 /***** Typography ********/
 *,
-#landing-page-title {
+#landing-page-title,
+h2,
+h3 {
   font-family: "Mali", cursive;
 }
 
@@ -51,7 +53,7 @@
 .navLink {
   text-decoration: none;
   color: rgb(37 37 38);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 .navLink:hover {
   color: #61dafb;
