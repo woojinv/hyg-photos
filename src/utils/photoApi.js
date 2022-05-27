@@ -11,13 +11,13 @@ export async function create(photo) {
     },
   });
   if (res.ok) return res.json();
-  throw new Error("Bad Credentials! CHECK THE SERVER TERMINAL");
+  throw new Error("Error creating a photo. Please try again!");
 }
 
 export async function getAll(eventTitle) {
   const res = await fetch(`${BASE_URL}/events/${eventTitle}/photos`);
   if (res.ok) return res.json();
-  throw new Error("Bad credentials! check the server terminal");
+  throw new Error("Error getting all photos. Please refresh and try again!");
 }
 
 export async function deletePhoto(photoId) {
@@ -29,5 +29,5 @@ export async function deletePhoto(photoId) {
     },
   });
   if (res.ok) return res.json();
-  throw new Error("bad credentials. check the server terminal");
+  throw new Error("Error deleting a photo. Please refresh and try again!");
 }
