@@ -62,55 +62,5 @@ export default function PageHeader({ user, handleLogout }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-    // <Container>
-    //   <Segment
-    //     clearing
-    //     style={{
-    //       maxWidth: 1000,
-    //       width: "100%",
-    //       margin: "0 auto",
-    //       marginTop: "1rem",
-    //       display: "flex",
-    //       justifyContent: "space-between",
-    //     }}
-    //   >
-    // <Link to="/">
-    //   <Image
-    //     fluid
-    //     src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-    //     size="tiny"
-    //   ></Image>
-    // </Link>
-
-    //     <Header>
-    // <Link to="/events">
-    //   <Button>Events</Button>
-    // </Link>
-
-    //       {user ? (
-    //         <>
-    //           <Link to="/create">
-    //             <Button>Create an Event</Button>
-    //           </Link>
-
-    // <Link to="" onClick={handleLogout}>
-    //   <Button>Log Out</Button>
-    // </Link>
-    //         </>
-    //       ) : (
-    //         <>
-    // <Link to="/login">
-    //   <Button>Log In</Button>
-    // </Link>
-
-    // <Link to="/signup">
-    //   <Button>Sign Up</Button>
-    // </Link>
-    //         </>
-    //       )}
-    //     </Header>
-    //   </Segment>
-    // </Container>
   );
 }
