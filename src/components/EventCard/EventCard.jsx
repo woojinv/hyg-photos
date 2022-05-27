@@ -25,7 +25,7 @@ export default function EventCard({ event, user, deleteEvent }) {
           <Card.Img
             variant="top"
             src={event.photoUrl}
-            style={{ height: 300, objectFit: "cover" }}
+            style={{ height: 200, objectFit: "cover" }}
           />
         </Link>
         <Card.Body
@@ -63,7 +63,7 @@ export default function EventCard({ event, user, deleteEvent }) {
         <Card.Img
           variant="top"
           src={event.photoUrl}
-          style={{ height: 300, objectFit: "cover" }}
+          style={{ height: 200, objectFit: "cover" }}
         />
       </Link>
       <Card.Body
