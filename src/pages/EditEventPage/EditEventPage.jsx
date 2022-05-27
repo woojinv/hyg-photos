@@ -168,7 +168,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
               </div>
             </Form.Field>
             <Form.Input
-              type="text"
+              type="date"
               name="date"
               placeholder={newEvent.date}
               value={newEvent.date}
