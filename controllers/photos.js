@@ -36,7 +36,9 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const photos = await Photo.find({ eventTitle: req.params.eventTitle });
+    const photos = await Photo.find({ eventTitle: req.params.eventTitle }).sort(
+      { createdAt: "desc" }
+    );
     res.status(200).json({ photos });
   } catch (err) {
     console.log(err);
