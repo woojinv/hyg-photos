@@ -11,19 +11,19 @@ export async function create(event) {
     },
   });
   if (res.ok) return res.json();
-  throw new Error("Bad Credentials! CHECK THE SERVER TERMINAL");
+  throw new Error("Error creating an event. Please try again!");
 }
 
 export async function getAll() {
   const res = await fetch(BASE_URL);
   if (res.ok) return res.json();
-  throw new Error("bad credentials! CHECK THE SERVER TERMINAL");
+  throw new Error("Error displaying events. Please refresh and try again!");
 }
 
 export async function getEvent(eventTitle) {
   const res = await fetch(BASE_URL + eventTitle);
   if (res.ok) return res.json();
-  throw new Error("bad credentials! check the server terminal");
+  throw new Error("Error getting an event. Please refresh and try again!");
 }
 
 export async function deleteEvent(eventId) {
@@ -34,7 +34,7 @@ export async function deleteEvent(eventId) {
     },
   });
   if (res.ok) return res.json();
-  throw new Error("bad credentials! check the server terminal");
+  throw new Error("Error deleting an event. Please refresh and try again!");
 }
 
 export async function editEvent(newEvent) {
@@ -47,5 +47,5 @@ export async function editEvent(newEvent) {
     body: JSON.stringify(newEvent),
   });
   if (res.ok) return res.json();
-  throw new Error("bad credentials, check the server terminal");
+  throw new Error("Error editing an event. Please refresh and try again!");
 }
