@@ -14,8 +14,8 @@ export async function create(photo) {
   throw new Error("Error creating a photo. Please try again!");
 }
 
-export async function getAll(eventTitle) {
-  const res = await fetch(`${BASE_URL}/events/${eventTitle}/photos`);
+export async function getAll(eventId) {
+  const res = await fetch(`${BASE_URL}/events/${eventId}/photos`);
   if (res.ok) return res.json();
   throw new Error("Error getting all photos. Please refresh and try again!");
 }
