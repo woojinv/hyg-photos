@@ -57,7 +57,7 @@ async function index(req, res) {
 
 async function getEvent(req, res) {
   try {
-    const event = await Event.findOne({ title: req.params.eventTitle });
+    const event = await Event.findOne({ _id: req.params.eventId });
     if (!event) return res.status(404).json({ err: "Event not found" });
     res.status(200).json({ event: event });
   } catch (err) {
