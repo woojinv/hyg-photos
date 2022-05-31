@@ -5,11 +5,11 @@ const multer = require("multer");
 const upload = multer();
 
 router.post(
-  "/events/:eventTitle/photos",
+  "/events/:eventId/photos",
   upload.single("photo"),
   photosCtrl.create
 );
-router.get("/events/:eventTitle/photos", photosCtrl.index);
+router.get("/events/:eventId/photos", photosCtrl.index);
 router.delete("/photos/:photoId", photosCtrl.deletePhoto);
 
 module.exports = router;
