@@ -9,6 +9,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function EventCard({ event, user, deleteEvent }) {
+  console.log(event, "<- this is event from EventCard");
   function handleClick(e) {
     e.stopPropagation();
     const eventId = e.target.attributes[1].value;
