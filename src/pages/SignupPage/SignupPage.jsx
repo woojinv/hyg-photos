@@ -52,7 +52,7 @@ export default function SignUpPage(props) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
           <Link to="/">
@@ -67,7 +67,8 @@ export default function SignUpPage(props) {
           <Segment stacked>
             <Form.Input
               name="username"
-              placeholder="username"
+              placeholder="Username"
+              label="Username"
               value={state.username}
               onChange={handleChange}
               required
@@ -75,7 +76,8 @@ export default function SignUpPage(props) {
             <Form.Input
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email"
+              label="Email"
               value={state.email}
               onChange={handleChange}
               required
@@ -83,7 +85,8 @@ export default function SignUpPage(props) {
             <Form.Input
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
+              label="Password"
               value={state.password}
               onChange={handleChange}
               required
@@ -92,12 +95,19 @@ export default function SignUpPage(props) {
               name="passwordConf"
               type="password"
               placeholder="Confirm Password"
+              label="Confirm Password"
               value={state.passwordConf}
               onChange={handleChange}
               required
             />
 
-            <Button type="submit" className="btn">
+            <Button
+              color="teal"
+              fluid
+              size="large"
+              type="submit"
+              className="btn"
+            >
               Signup
             </Button>
           </Segment>

@@ -58,7 +58,7 @@ export default function LoginPage(props) {
   return (
     <>
       <Grid
-        textAlign="center"
+        centered
         style={{
           height: "100vh",
         }}
@@ -79,7 +79,8 @@ export default function LoginPage(props) {
               <Form.Input
                 type="email"
                 name="email"
-                placeholder="email"
+                placeholder="Email"
+                label="Email"
                 value={state.email}
                 onChange={handleChange}
                 required
@@ -87,7 +88,8 @@ export default function LoginPage(props) {
               <Form.Input
                 type="password"
                 name="password"
-                placeholder="password"
+                placeholder="Password"
+                label="Password"
                 value={state.password}
                 onChange={handleChange}
                 required
@@ -103,7 +105,7 @@ export default function LoginPage(props) {
               </Button>
             </Segment>
           </Form>
-          <Message>
+          <Message style={{ textAlign: "center" }}>
             New to us? <Link to="/signup">Sign Up</Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}

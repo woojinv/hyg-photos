@@ -151,7 +151,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
           <Link to="/">
@@ -172,6 +172,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               type="text"
               name="title"
               placeholder="Title"
+              label="Title (no special characters)"
               value={state.title}
               onChange={handleChange}
               required
@@ -181,16 +182,20 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               name="description"
               placeholder="Add a brief description of your event or details others may find useful"
               onChange={handleChange}
+              required
             />
 
             <Form.Field>
               <div ref={ref}>
+                <label>
+                  <strong>Location</strong>
+                </label>
                 <input
                   name="location"
                   value={value}
                   onChange={handleChange}
                   disabled={!ready}
-                  placeholder="Where did this event take place?"
+                  placeholder="Begin typing a valid address"
                 />
                 {/* We can use the "status" to decide whether we should display the dropdown or not */}
                 {status === "OK" && <ul>{renderSuggestions()}</ul>}
@@ -200,6 +205,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               type="date"
               name="date"
               placeholder="Date"
+              label="Date"
               value={state.date}
               onChange={handleChange}
               required
@@ -209,10 +215,18 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
                 type="file"
                 name="photo"
                 placeholder="upload a coverphoto"
+                label="Cover Photo"
                 onChange={handleFileInput}
+                required
               />
             </Form.Field>
-            <Button type="submit" className="btn">
+            <Button
+              color="teal"
+              fluid
+              size="large"
+              type="submit"
+              className="btn"
+            >
               Submit
             </Button>
           </Segment>
