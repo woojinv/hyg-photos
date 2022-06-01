@@ -21,7 +21,6 @@ async function create(req, res) {
         photoUrl: data.Location,
         user: req.user,
         event: event,
-        // eventTitle: req.body.eventTitle,
       });
 
       await photo.populate("user");

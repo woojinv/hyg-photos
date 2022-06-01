@@ -20,11 +20,11 @@ export default function EditEventPage({ user, handleLogout, event }) {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [newEvent, setNewEvent] = useState({
-    previousTitle: event.title,
     title: event.title,
     description: event.description,
     location: event.location,
     date: event.date,
+    _id: event._id,
   });
 
   async function handleSubmit(e) {
@@ -33,7 +33,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
     try {
       const data = await eventAPI.editEvent(newEvent);
       setNewEvent(data.event);
-      navigate(`/${data.event.title}`);
+      navigate(`/${data.event._id}`);
     } catch (err) {
       console.log(
         err.message,
