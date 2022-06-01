@@ -101,7 +101,13 @@ export default function SignUpPage(props) {
               required
             />
 
-            <Button fluid type="submit" className="btn" color="green">
+            <Button
+              color="teal"
+              fluid
+              size="large"
+              type="submit"
+              className="btn"
+            >
               Signup
             </Button>
           </Segment>
