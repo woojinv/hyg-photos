@@ -193,7 +193,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             <h2>Add a Photo to this Event!</h2>
             <AddPhotoForm
               handleAddPhoto={handleAddPhoto}
-              title={event?.title}
+              eventId={event?._id}
             />
           </Col>
         </Row>
