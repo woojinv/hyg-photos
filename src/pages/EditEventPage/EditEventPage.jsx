@@ -131,7 +131,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
           <Link to="/">
@@ -151,6 +151,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
             <Form.Input
               type="text"
               name="title"
+              label="Title"
               placeholder={newEvent.title}
               value={newEvent.title}
               onChange={handleChange}
@@ -159,6 +160,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
             <Form.TextArea
               type="text"
               name="description"
+              label="Description"
               placeholder={newEvent.description}
               value={newEvent.description}
               onChange={handleChange}
@@ -166,6 +168,9 @@ export default function EditEventPage({ user, handleLogout, event }) {
             />
             <Form.Field>
               <div ref={ref}>
+                <label>
+                  <strong>Location</strong>
+                </label>
                 <input
                   name="location"
                   value={value}
@@ -180,12 +185,19 @@ export default function EditEventPage({ user, handleLogout, event }) {
             <Form.Input
               type="date"
               name="date"
+              label="Date"
               placeholder={newEvent.date}
               value={newEvent.date}
               onChange={handleChange}
               required
             />
-            <Button type="submit" className="btn">
+            <Button
+              color="teal"
+              fluid
+              size="large"
+              type="submit"
+              className="btn"
+            >
               Submit
             </Button>
           </Segment>
