@@ -3,7 +3,7 @@ import tokenService from "./tokenService";
 const BASE_URL = "/api/";
 
 export async function create(photo) {
-  const res = await fetch(`${BASE_URL}/events/${photo.eventTitle}/photos`, {
+  const res = await fetch(`${BASE_URL}/events/${photo.event}/photos`, {
     method: "POST",
     body: photo,
     headers: {
