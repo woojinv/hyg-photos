@@ -28,7 +28,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 export default function ViewEventPage({ user, handleLogout, editEvent }) {
-  const { eventTitle } = useParams();
+  const { eventId } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [event, setEvent] = useState({});
@@ -37,7 +37,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   async function getEvent() {
     try {
       setLoading(true);
-      const data = await eventsAPI.getEvent(eventTitle);
+      const data = await eventsAPI.getEvent(eventId);
 
       setEvent(data?.event);
       setLoading(false);
@@ -63,7 +63,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
   async function getPhotos() {
     try {
       setLoading(true);
-      const data = await photosAPI.getAll(eventTitle);
+      const data = await photosAPI.getAll(eventId);
 
       setPhotos(data?.photos);
       setLoading(false);
@@ -154,7 +154,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             <h1 style={{ display: "inline" }}>{event.title}</h1>
 
             {user._id === event?.user ? (
-              <Link to={`/${event?.title}/edit`}>
+              <Link to={`/${event?._id}/edit`}>
                 <Button size="lg" onClick={handleClick}>
                   Edit
                 </Button>
@@ -193,7 +193,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
             <h2>Add a Photo to this Event!</h2>
             <AddPhotoForm
               handleAddPhoto={handleAddPhoto}
-              title={event?.title}
+              eventId={event?._id}
             />
           </Col>
         </Row>

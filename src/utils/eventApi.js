@@ -20,8 +20,8 @@ export async function getAll() {
   throw new Error("Error displaying events. Please refresh and try again!");
 }
 
-export async function getEvent(eventTitle) {
-  const res = await fetch(BASE_URL + eventTitle);
+export async function getEvent(eventId) {
+  const res = await fetch(BASE_URL + eventId);
   if (res.ok) return res.json();
   throw new Error("Error getting an event. Please refresh and try again!");
 }
@@ -38,7 +38,7 @@ export async function deleteEvent(eventId) {
 }
 
 export async function editEvent(newEvent) {
-  const res = await fetch(`${BASE_URL}/${newEvent.previousTitle}/edit`, {
+  const res = await fetch(`${BASE_URL}/${newEvent._id}/edit`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json",

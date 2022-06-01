@@ -8,7 +8,7 @@ module.exports = { create, index, deletePhoto };
 
 async function create(req, res) {
   try {
-    const event = await Event.findOne({ title: req.body.eventTitle });
+    const event = await Event.findOne({ _id: req.body.event });
     const filePath = `${uuidv4()}/${req.file.originalname}`;
     const params = {
       Bucket: process.env.BUCKET_NAME,
@@ -21,7 +21,6 @@ async function create(req, res) {
         photoUrl: data.Location,
         user: req.user,
         event: event,
-        eventTitle: req.body.eventTitle,
       });
 
       await photo.populate("user");
@@ -36,9 +35,9 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const photos = await Photo.find({ eventTitle: req.params.eventTitle }).sort(
-      { createdAt: "desc" }
-    );
+    const photos = await Photo.find({ event: req.params.eventId }).sort({
+      createdAt: "desc",
+    });
     res.status(200).json({ photos });
   } catch (err) {
     console.log(err);

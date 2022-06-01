@@ -57,7 +57,7 @@ async function index(req, res) {
 
 async function getEvent(req, res) {
   try {
-    const event = await Event.findOne({ title: req.params.eventTitle });
+    const event = await Event.findOne({ _id: req.params.eventId });
     if (!event) return res.status(404).json({ err: "Event not found" });
     res.status(200).json({ event: event });
   } catch (err) {
@@ -78,15 +78,13 @@ async function deleteEvent(req, res) {
 
 async function editEvent(req, res) {
   try {
-    const event = await Event.findOne({ title: req.body.previousTitle });
-    console.log(event, "<- this is event");
+    const event = await Event.findOne({ _id: req.body._id });
     event.title = req.body.title;
     event.description = req.body.description;
     event.location = req.body.location;
     event.date = req.body.date;
     event.save();
     res.status(200).json({ event });
-    console.log(event, "<- this should have a new title");
   } catch (err) {
     console.log(err, "<- this is err from editEvent controller");
   }
