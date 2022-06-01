@@ -172,7 +172,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
               type="text"
               name="title"
               placeholder="Title"
-              label="Title"
+              label="Title (no special characters)"
               value={state.title}
               onChange={handleChange}
               required

@@ -151,7 +151,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
             <Form.Input
               type="text"
               name="title"
-              label="Title"
+              label="Title (no special characters)"
               placeholder={newEvent.title}
               value={newEvent.title}
               onChange={handleChange}
