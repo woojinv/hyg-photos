@@ -18,18 +18,39 @@ import usePlacesAutocomplete, {
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 // utility functions
 import * as eventsAPI from "../../utils/eventApi";
+import { FormControl } from "react-bootstrap";
 
 export default function EventsPage({ user, handleLogout }) {
+  const [searchInput, setSearchInput] = useState("");
   const [events, setEvents] = useState([]);
+  const [displayedEvents, setDisplayedEvents] = useState([]);
 
   const [coordinates, setCoordinates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // fav function 1
+  // SEARCH FUNCTIONALITY
+  function handleChange(e) {
+    setSearchInput(e.target.value);
+  }
+
+  function getSearchedEvents() {
+    const filteredEvents = events.filter((event) => {
+      return event.title.toLowerCase().includes(searchInput);
+    });
+    setDisplayedEvents(filteredEvents);
+  }
+
+  useEffect(() => {
+    getSearchedEvents();
+  }, [searchInput]);
+
+  // ***********************
+
   async function getCoordinates() {
     const coordinatesArray = [];
     const promises = events.map((event) => {
@@ -81,6 +102,7 @@ export default function EventsPage({ user, handleLogout }) {
 
   useEffect(() => {
     getCoordinates();
+    setDisplayedEvents(events);
   }, [events]);
 
   if (error) {
@@ -113,10 +135,32 @@ export default function EventsPage({ user, handleLogout }) {
           <EventsMap coordinates={coordinates} events={events} />
         </Col>
       </Row>
-
+      <br />
+      <h1>Hebron Youth Group Events Gallery</h1>
+      <br />
       <Row>
         <Col>
-          <EventGallery events={events} user={user} deleteEvent={deleteEvent} />
+          <Form style={{ maxWidth: 450 }}>
+            <Form.Group>
+              <FormControl
+                type="search"
+                placeholder="Search for an Event!"
+                className="me-2"
+                aria-label="Search"
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+      <br />
+      <Row>
+        <Col>
+          <EventGallery
+            events={displayedEvents}
+            user={user}
+            deleteEvent={deleteEvent}
+          />
         </Col>
       </Row>
       <Row>
