@@ -39,7 +39,8 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
  -->
 ### View Event Page
 
-![View Event Page](https://i.imgur.com/53WXAF7.jpg "View Event Page")
+![View Event Page](https://i.imgur.com/jIvvWp6.jpg "View Event Page")
+<!-- ![View Event Page](https://i.imgur.com/53WXAF7.jpg "View Event Page") -->
 
 ### Event Photo Gallery
 
