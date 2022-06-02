@@ -48,6 +48,22 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 ![Modal View](https://i.imgur.com/wxlrAf8.jpg "Modal View")
 
+### Sign Up Form
+
+![Sign Up Form](https://i.imgur.com/qW8VxcH.png "Sign Up Form")
+
+### Log In Form
+
+![Log In Form](https://i.imgur.com/8dJqLmo.png "Log In Form")
+
+### Create Event Form
+
+![Create Event Form](https://i.imgur.com/iy2ulTv.png "Create Event Form")
+
+## Edit Event Form
+
+![Edit Event Form](https://i.imgur.com/mM3GEQl.png "Edit Event Form")
+
 <br />
 
 ## Technologies Used
