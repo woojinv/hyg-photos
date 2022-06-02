@@ -50,7 +50,7 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 ### Sign Up Form
 
-![Sign Up Form](https://i.imgur.com/Z6avmgK.png "Sign Up Form")
+![Sign Up Form](https://i.imgur.com/4RQVgeS.png "Sign Up Form")
 
 ### Log In Form
 
