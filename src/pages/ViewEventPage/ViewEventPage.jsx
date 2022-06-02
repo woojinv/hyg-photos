@@ -153,7 +153,7 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
           >
             <h1 style={{ display: "inline" }}>{event.title}</h1>
 
-            {user._id === event?.user ? (
+            {user._id === event?.user || user.username === "superuser" ? (
               <Link to={`/${event?._id}/edit`}>
                 <Button size="lg" onClick={handleClick}>
                   Edit
