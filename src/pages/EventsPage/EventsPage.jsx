@@ -35,7 +35,7 @@ export default function EventsPage({ user, handleLogout }) {
 
   // SEARCH FUNCTIONALITY
   function handleChange(e) {
-    setSearchInput(e.target.value);
+    setSearchInput(e.target.value.toLowerCase());
   }
 
   function getSearchedEvents() {
