@@ -37,7 +37,7 @@ export default function PhotoCard({ photo, user, deletePhoto }) {
               justifyContent: "flex-end",
             }}
           >
-            {photo.user === user._id ? (
+            {photo.user === user._id || user.username === "superuser" ? (
               <Button
                 variant="outline-danger"
                 onClick={handleClick}
