@@ -76,6 +76,18 @@ h3 {
   color: darkturquoise;
 }
 
+.event-card-image-container {
+  overflow: hidden;
+}
+
+.event-card-image {
+  transition: transform 0.4s;
+}
+
+.event-card-image:hover {
+  transform: scale(1.25);
+}
+
 /******** photos ******/
 .photos-column {
   display: flex;
