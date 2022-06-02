@@ -55,6 +55,7 @@ export default function SignUpPage({
   if (error) {
     return (
       <>
+        <PageHeader user={user} handleLogout={handleLogout} />
         <ErrorMessage error={error} />
       </>
     );
