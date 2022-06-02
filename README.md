@@ -60,11 +60,11 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 ### Create Event Form
 
-![Create Event Form](https://i.imgur.com/kaT1zfg.png "Create Event Form")
+![Create Event Form](https://i.imgur.com/OCym1AT.png "Create Event Form")
 
 ### Edit Event Form
 
-![Edit Event Form](https://i.imgur.com/lNBBUjD.png "Edit Event Form")
+![Edit Event Form](https://i.imgur.com/9uWkxSb.png "Edit Event Form")
 
 <br />
 
