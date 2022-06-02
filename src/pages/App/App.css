@@ -85,11 +85,23 @@ h3 {
 }
 
 .event-card-image:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 /******** photos ******/
 .photos-column {
   display: flex;
   justify-content: center;
+}
+
+.photo-card-image-container {
+  overflow: hidden;
+}
+
+.photo-card-image {
+  transition: transform 0.4s;
+}
+
+.photo-card-image:hover {
+  transform: scale(1.2);
 }

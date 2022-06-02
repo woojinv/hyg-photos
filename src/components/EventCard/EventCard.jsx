@@ -63,11 +63,14 @@ export default function EventCard({ event, user, deleteEvent }) {
       className="shadow-1-strong"
     >
       <Link className="card-link" to={`/${event._id}`}>
-        <Card.Img
-          variant="top"
-          src={event.photoUrl}
-          style={{ height: 200, objectFit: "cover" }}
-        />
+        <div className="event-card-image-container">
+          <Card.Img
+            className="event-card-image"
+            variant="top"
+            src={event.photoUrl}
+            style={{ height: 200, objectFit: "cover" }}
+          />
+        </div>
       </Link>
       <Card.Body
         style={{
