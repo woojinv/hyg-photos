@@ -131,6 +131,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
   if (error) {
     return (
       <>
+        <PageHeader user={user} handleLogout={handleLogout} />
         <ErrorMessage error={error} />
       </>
     );
