@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import PageHeader from "../../components/Header/Header";
+import Loading from "../../components/Loader/Loader";
 
 // Semantic UI
 import { Grid, Form, Segment, Button, Header } from "semantic-ui-react";
@@ -18,6 +20,8 @@ import * as eventAPI from "../../utils/eventApi";
 
 export default function EditEventPage({ user, handleLogout, event }) {
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [newEvent, setNewEvent] = useState({
     title: event.title,
@@ -31,8 +35,10 @@ export default function EditEventPage({ user, handleLogout, event }) {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const data = await eventAPI.editEvent(newEvent);
       setNewEvent(data.event);
+      setLoading(false);
       navigate(`/${data.event._id}`);
     } catch (err) {
       console.log(
@@ -126,6 +132,15 @@ export default function EditEventPage({ user, handleLogout, event }) {
     return (
       <>
         <ErrorMessage error={error} />
+      </>
+    );
+  }
+
+  if (loading) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <Loading />
       </>
     );
   }
