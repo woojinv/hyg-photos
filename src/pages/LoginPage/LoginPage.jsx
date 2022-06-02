@@ -55,6 +55,7 @@ export default function LoginPage({ user, handleLogout, handleSignUpOrLogin }) {
   if (error) {
     return (
       <>
+        <PageHeader user={user} handleLogout={handleLogout} />
         <ErrorMessage error={error} />
       </>
     );
