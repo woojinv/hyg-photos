@@ -92,11 +92,23 @@ function App() {
       />
       <Route
         path="/login"
-        element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+        element={
+          <LoginPage
+            user={user}
+            handleLogout={handleLogout}
+            handleSignUpOrLogin={handleSignUpOrLogin}
+          />
+        }
       />
       <Route
         path="/signup"
-        element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+        element={
+          <SignupPage
+            user={user}
+            handleLogout={handleLogout}
+            handleSignUpOrLogin={handleSignUpOrLogin}
+          />
+        }
       />
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

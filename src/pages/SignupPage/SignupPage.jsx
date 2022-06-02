@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 // Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import PageHeader from "../../components/Header/Header";
+import Loading from "../../components/Loader/Loader";
 
 // Semantic UI
 import { Grid, Header, Form, Segment, Button } from "semantic-ui-react";
@@ -10,7 +12,11 @@ import { Grid, Header, Form, Segment, Button } from "semantic-ui-react";
 // utility functions
 import userService from "../../utils/userService";
 
-export default function SignUpPage(props) {
+export default function SignUpPage({
+  user,
+  handleLogout,
+  handleSignUpOrLogin,
+}) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -32,8 +38,10 @@ export default function SignUpPage(props) {
     e.preventDefault();
 
     try {
+      setLoading(true);
       await userService.signup(state);
-      props.handleSignUpOrLogin();
+      handleSignUpOrLogin();
+      setLoading(false);
       navigate("/events");
     } catch (err) {
       console.log(
@@ -48,6 +56,15 @@ export default function SignUpPage(props) {
     return (
       <>
         <ErrorMessage error={error} />
+      </>
+    );
+  }
+
+  if (loading) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <Loading />
       </>
     );
   }

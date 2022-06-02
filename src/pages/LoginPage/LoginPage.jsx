@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 // Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import PageHeader from "../../components/Header/Header";
+import Loading from "../../components/Loader/Loader";
 
 // CSS
 import "./LoginPage.css";
@@ -20,9 +22,10 @@ import {
 // utility functions
 import userService from "../../utils/userService";
 
-export default function LoginPage(props) {
+export default function LoginPage({ user, handleLogout, handleSignUpOrLogin }) {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     email: "",
@@ -39,8 +42,10 @@ export default function LoginPage(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       await userService.login(state);
-      props.handleSignUpOrLogin();
+      handleSignUpOrLogin();
+      setLoading(false);
       navigate("/events");
     } catch (err) {
       setError(err.message);
@@ -51,6 +56,15 @@ export default function LoginPage(props) {
     return (
       <>
         <ErrorMessage error={error} />
+      </>
+    );
+  }
+
+  if (loading) {
+    return (
+      <>
+        <PageHeader user={user} handleLogout={handleLogout} />
+        <Loading />
       </>
     );
   }
