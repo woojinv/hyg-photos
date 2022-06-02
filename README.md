@@ -54,15 +54,15 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 ### Log In Form
 
-![Log In Form](https://i.imgur.com/8dJqLmo.png "Log In Form")
+![Log In Form](https://i.imgur.com/19IP48A.png "Log In Form")
 
 ### Create Event Form
 
-![Create Event Form](https://i.imgur.com/iy2ulTv.png "Create Event Form")
+![Create Event Form](https://i.imgur.com/kaT1zfg.png "Create Event Form")
 
 ## Edit Event Form
 
-![Edit Event Form](https://i.imgur.com/mM3GEQl.png "Edit Event Form")
+![Edit Event Form](https://i.imgur.com/lNBBUjD.png "Edit Event Form")
 
 <br />
 
