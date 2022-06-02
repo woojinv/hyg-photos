@@ -12,6 +12,7 @@ import userService from "../../utils/userService";
 
 export default function SignUpPage(props) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [state, setState] = useState({
     username: "",
