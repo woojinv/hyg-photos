@@ -13,6 +13,9 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+// css
+import "./LandingPage.css";
+
 export default function LandingPage({ user, handleLogout }) {
   const [modalShow, setModalShow] = useState(false);
 
