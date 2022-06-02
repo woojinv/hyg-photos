@@ -9,6 +9,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function EventCard({ event, user, deleteEvent }) {
+  console.log(user, "<- this is user");
   function handleClick(e) {
     e.stopPropagation();
     const eventId = e.target.attributes[1].value;
@@ -40,7 +41,7 @@ export default function EventCard({ event, user, deleteEvent }) {
             <Card.Text>{event.date}</Card.Text>
           </Link>
           <br />
-          {event.user._id === user._id ? (
+          {event.user._id === user._id || user.username === "superuser" ? (
             <Button
               id={event._id}
               variant="outline-danger"
