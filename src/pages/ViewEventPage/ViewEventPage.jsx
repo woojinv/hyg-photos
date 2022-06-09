@@ -154,13 +154,27 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
               alignItems: "center",
             }}
           >
-            <h1 style={{ display: "inline" }}>{event.title}</h1>
+            <motion.h1
+              style={{ display: "inline" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 1 }}
+            >
+              {event.title}
+            </motion.h1>
 
             {user._id === event?.user || user.username === "superuser" ? (
               <Link to={`/${event?._id}/edit`}>
-                <Button size="lg" onClick={handleClick}>
-                  Edit
-                </Button>
+                <motion.div
+                  style={{ display: "inline" }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 1 }}
+                >
+                  <Button size="lg" onClick={handleClick}>
+                    Edit
+                  </Button>
+                </motion.div>
               </Link>
             ) : null}
           </Col>
@@ -168,40 +182,72 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
         <br />
         <Row>
           <Col>
-            <h3>{event.location}</h3>
+            <motion.h3
+              style={{ display: "inline" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, ease: "easeInOut", duration: 1 }}
+            >
+              {event.location}
+            </motion.h3>
           </Col>
         </Row>
 
         <Row style={{ marginTop: ".5rem" }}>
           <Col>
-            {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+            <motion.div
+              style={{ display: "inline" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, ease: "easeInOut", duration: 1 }}
+            >
+              {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+            </motion.div>
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <EventInfo
-              title={event?.title}
-              description={event.description}
-              location={event.location}
-              date={event.date}
-              photoUrl={event.photoUrl}
-              id={event._id}
-            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, ease: "easeInOut", duration: 1 }}
+            >
+              <EventInfo
+                title={event?.title}
+                description={event.description}
+                location={event.location}
+                date={event.date}
+                photoUrl={event.photoUrl}
+                id={event._id}
+              />
+            </motion.div>
           </Col>
         </Row>
         <br />
         <Row>
           <Col>
-            <h2>Add a Photo to this Event!</h2>
-            <AddPhotoForm
-              handleAddPhoto={handleAddPhoto}
-              eventId={event?._id}
-            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, ease: "easeInOut", duration: 1 }}
+            >
+              <h2>Add a Photo to this Event!</h2>
+              <AddPhotoForm
+                handleAddPhoto={handleAddPhoto}
+                eventId={event?._id}
+              />
+            </motion.div>
           </Col>
         </Row>
         <br />
-        <h2>Photo Gallery</h2>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, ease: "easeInOut", duration: 1 }}
+        >
+          Photo Gallery
+        </motion.h2>
         <br />
         <Row>
           <Col>
