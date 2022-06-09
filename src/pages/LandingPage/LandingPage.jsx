@@ -32,15 +32,22 @@ export default function LandingPage({ user, handleLogout }) {
       <Row>
         <Col>
           <Card className="bg-dark text-white shadow-5-strong">
-            <Card.Img
-              src="https://i.imgur.com/tywnHZX.jpg"
-              alt="collage of students"
-              style={{
-                opacity: 0.2,
-                maxHeight: 800,
-                objectFit: "cover",
-              }}
-            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 2 }}
+            >
+              <Card.Img
+                src="https://i.imgur.com/tywnHZX.jpg"
+                alt="collage of students"
+                style={{
+                  opacity: 0.2,
+                  maxHeight: 800,
+                  objectFit: "cover",
+                }}
+              />
+            </motion.div>
+
             <Card.ImgOverlay
               onClick={() => setModalShow(true)}
               style={{
