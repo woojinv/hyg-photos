@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+// framer-motion
+import { motion } from "framer-motion";
+
 // Components
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
@@ -132,7 +135,13 @@ export default function EventsPage({ user, handleLogout }) {
       </Row>
       <Row>
         <Col>
-          <EventsMap coordinates={coordinates} events={events} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 1 }}
+          >
+            <EventsMap coordinates={coordinates} events={events} />
+          </motion.div>
         </Col>
       </Row>
       <br />
