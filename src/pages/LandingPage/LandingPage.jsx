@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// framer-motion
+import { motion } from "framer-motion";
+
 // Components
 import PageHeader from "../../components/Header/Header";
 import PhotoModal from "../../components/PhotoModal/PhotoModal";
@@ -49,7 +52,14 @@ export default function LandingPage({ user, handleLogout }) {
               }}
             >
               <Card.Title>
-                <h1 id="landing-page-title">Hebron Youth Group</h1>
+                <motion.h1
+                  id="landing-page-title"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 2 }}
+                >
+                  Hebron Youth Group
+                </motion.h1>
               </Card.Title>
               <Card.Text>
                 <Link to="/events">
