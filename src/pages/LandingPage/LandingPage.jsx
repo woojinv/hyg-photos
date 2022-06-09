@@ -63,9 +63,15 @@ export default function LandingPage({ user, handleLogout }) {
               </Card.Title>
               <Card.Text>
                 <Link to="/events">
-                  <Button variant="outline-light" size="lg">
-                    Get Started
-                  </Button>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, ease: "easeInOut", duration: 2 }}
+                  >
+                    <Button variant="outline-light" size="lg">
+                      Get Started
+                    </Button>
+                  </motion.div>
                 </Link>
               </Card.Text>
             </Card.ImgOverlay>
