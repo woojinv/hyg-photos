@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+// framer-motion
+import { motion } from "framer-motion";
+
 // Components
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import PageHeader from "../../components/Header/Header";
@@ -153,85 +156,99 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
   return (
     <Grid centered style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          <Link to="/">
-            <img
-              style={{ width: "75px" }}
-              src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-            />
-          </Link>{" "}
-          Create an Event
-        </Header>{" "}
-        <Form
-          style={{ maxWidth: 450 }}
-          autoComplete="off"
-          onSubmit={handleSubmit}
+        <motion.div
+          style={{ paddingBottom: "15px" }}
+          initial={{ scale: 0, x: -500, y: -500 }}
+          animate={{ scale: 1, x: 0, y: 0 }}
+          transition={{ ease: "easeInOut", duration: 0.5 }}
         >
-          <Segment stacked>
-            <Form.Input
-              type="text"
-              name="title"
-              placeholder="Title"
-              label="Title"
-              value={state.title}
-              onChange={handleChange}
-              required
-            />
-            <Form.TextArea
-              label="Description"
-              name="description"
-              placeholder="Add a brief description of your event or details others may find useful"
-              onChange={handleChange}
-              required
-            />
+          <Header as="h2" color="teal" textAlign="center">
+            <Link to="/">
+              <img
+                style={{ width: "75px" }}
+                src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
+              />
+            </Link>{" "}
+            Create an Event
+          </Header>{" "}
+        </motion.div>
 
-            <Form.Field>
-              <div ref={ref}>
-                <label>
-                  <strong>Location</strong>
-                </label>
-                <input
-                  name="location"
-                  value={value}
-                  onChange={handleChange}
-                  disabled={!ready}
-                  placeholder="Begin typing a valid address"
-                />
-                {/* We can use the "status" to decide whether we should display the dropdown or not */}
-                {status === "OK" && <ul>{renderSuggestions()}</ul>}
-              </div>
-            </Form.Field>
-            <Form.Input
-              type="date"
-              name="date"
-              placeholder="Date"
-              label="Date"
-              value={state.date}
-              onChange={handleChange}
-              required
-            />
-            <Form.Field>
+        <motion.div
+          initial={{ scale: 0, x: -500, y: -500 }}
+          animate={{ scale: 1, x: 0, y: 0 }}
+          transition={{ delay: 0.1, ease: "easeInOut", duration: 0.5 }}
+        >
+          <Form
+            style={{ maxWidth: 450 }}
+            autoComplete="off"
+            onSubmit={handleSubmit}
+          >
+            <Segment stacked>
               <Form.Input
-                type="file"
-                name="photo"
-                placeholder="upload a coverphoto"
-                label="Cover Photo"
-                onChange={handleFileInput}
+                type="text"
+                name="title"
+                placeholder="Title"
+                label="Title"
+                value={state.title}
+                onChange={handleChange}
                 required
               />
-            </Form.Field>
-            <Button
-              color="teal"
-              fluid
-              size="large"
-              type="submit"
-              className="btn"
-            >
-              Submit
-            </Button>
-          </Segment>
-          {error ? <ErrorMessage error={error} /> : null}
-        </Form>
+              <Form.TextArea
+                label="Description"
+                name="description"
+                placeholder="Add a brief description of your event or details others may find useful"
+                onChange={handleChange}
+                required
+              />
+
+              <Form.Field>
+                <div ref={ref}>
+                  <label>
+                    <strong>Location</strong>
+                  </label>
+                  <input
+                    name="location"
+                    value={value}
+                    onChange={handleChange}
+                    disabled={!ready}
+                    placeholder="Begin typing a valid address"
+                  />
+                  {/* We can use the "status" to decide whether we should display the dropdown or not */}
+                  {status === "OK" && <ul>{renderSuggestions()}</ul>}
+                </div>
+              </Form.Field>
+              <Form.Input
+                type="date"
+                name="date"
+                placeholder="Date"
+                label="Date"
+                value={state.date}
+                onChange={handleChange}
+                required
+              />
+              <Form.Field>
+                <Form.Input
+                  type="file"
+                  name="photo"
+                  placeholder="upload a coverphoto"
+                  label="Cover Photo"
+                  onChange={handleFileInput}
+                  required
+                />
+              </Form.Field>
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                type="submit"
+                className="btn"
+              >
+                Submit
+              </Button>
+            </Segment>
+            {error ? <ErrorMessage error={error} /> : null}
+          </Form>
+        </motion.div>
       </Grid.Column>
     </Grid>
   );
