@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// framer-motion
+import { motion } from "framer-motion";
+
 // Bootstrap
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,10 +15,12 @@ export default function PageHeader({ user, handleLogout }) {
       <Container>
         <Navbar.Brand>
           <Link to="/">
-            <img
+            <motion.img
               style={{ width: "75px" }}
               src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-            ></img>
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+            ></motion.img>
           </Link>
         </Navbar.Brand>
 
