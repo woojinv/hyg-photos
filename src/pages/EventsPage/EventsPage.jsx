@@ -145,19 +145,31 @@ export default function EventsPage({ user, handleLogout }) {
         </Col>
       </Row>
       <br />
-      <h1>Hebron Youth Group Events Gallery</h1>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, ease: "easeInOut", duration: 1 }}
+      >
+        Hebron Youth Group Events Gallery
+      </motion.h1>
       <br />
       <Row>
         <Col>
           <Form style={{ maxWidth: 450 }}>
             <Form.Group>
-              <FormControl
-                type="search"
-                placeholder="Search for an Event!"
-                className="me-2"
-                aria-label="Search"
-                onChange={handleChange}
-              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, ease: "easeInOut", duration: 1 }}
+              >
+                <FormControl
+                  type="search"
+                  placeholder="Search for an Event!"
+                  className="me-2"
+                  aria-label="Search"
+                  onChange={handleChange}
+                />
+              </motion.div>
             </Form.Group>
           </Form>
         </Col>
