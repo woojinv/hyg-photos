@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
+// framer-motion
+import { motion } from "framer-motion";
+
 // Components
 import Map from "../../components/Map/Map";
 import PageHeader from "../../components/Header/Header";
@@ -228,35 +231,65 @@ export default function ViewEventPage({ user, handleLogout, editEvent }) {
       <br />
       <Row>
         <Col style={{ textAlign: "center" }}>
-          <h1>{event.title}</h1>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 1 }}
+          >
+            {event.title}
+          </motion.h1>
         </Col>
       </Row>
       <br />
       <Row>
         <Col>
-          <h3>{event.location}</h3>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, ease: "easeInOut", duration: 1 }}
+          >
+            {event.location}
+          </motion.h3>
         </Col>
       </Row>
       <Row style={{ marginTop: ".5rem" }}>
         <Col>
-          {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, ease: "easeInOut", duration: 1 }}
+          >
+            {coordinates.latitude ? <Map coordinates={coordinates} /> : null}
+          </motion.div>
         </Col>
       </Row>
 
       <Row>
         <Col>
-          <EventInfo
-            title={event?.title}
-            description={event.description}
-            location={event.location}
-            date={event.date}
-            photoUrl={event.photoUrl}
-            id={event._id}
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, ease: "easeInOut", duration: 1 }}
+          >
+            <EventInfo
+              title={event?.title}
+              description={event.description}
+              location={event.location}
+              date={event.date}
+              photoUrl={event.photoUrl}
+              id={event._id}
+            />
+          </motion.div>
         </Col>
       </Row>
       <br />
-      <h2>Photo Gallery</h2>
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, ease: "easeInOut", duration: 1 }}
+      >
+        Photo Gallery
+      </motion.h2>
       <br />
       <Row>
         <Col>
