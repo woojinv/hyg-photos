@@ -18,8 +18,8 @@ export default function PageHeader({ user, handleLogout }) {
             <motion.img
               style={{ width: "75px" }}
               src="https://storage.snappages.site/3FFMJ4/assets/images/676092_311x310_500.png"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             ></motion.img>
           </Link>
         </Navbar.Brand>
@@ -28,16 +28,23 @@ export default function PageHeader({ user, handleLogout }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link className="navLink" to="/events">
-                Events
-              </Link>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Link className="navLink" to="/events">
+                  Events
+                </Link>
+              </motion.div>
             </Nav.Link>
 
             {user ? (
               <Nav.Link>
-                <Link className="navLink" to="/create">
-                  Create
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link className="navLink" to="/create">
+                    Create
+                  </Link>
+                </motion.div>
               </Nav.Link>
             ) : null}
           </Nav>
@@ -45,23 +52,38 @@ export default function PageHeader({ user, handleLogout }) {
           {user ? (
             <Nav>
               <Nav.Link>
-                <Link className="navLink" to="" onClick={handleLogout}>
-                  Log Out
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link className="navLink" to="" onClick={handleLogout}>
+                    Log Out
+                  </Link>
+                </motion.div>
               </Nav.Link>
             </Nav>
           ) : (
             <Nav>
               <Nav.Link>
-                <Link className="navLink" to="/login">
-                  Log In
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link className="navLink" to="/login">
+                    Log In
+                  </Link>
+                </motion.div>
               </Nav.Link>
 
               <Nav.Link>
-                <Link className="navLink" to="/signup">
-                  Sign Up
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link className="navLink" to="/signup">
+                    Sign Up
+                  </Link>
+                </motion.div>
               </Nav.Link>
             </Nav>
           )}
