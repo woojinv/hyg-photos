@@ -52,6 +52,10 @@ export default function EventsPage({ user, handleLogout }) {
     getSearchedEvents();
   }, [searchInput]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   // ***********************
 
   async function getCoordinates() {
@@ -155,7 +159,7 @@ export default function EventsPage({ user, handleLogout }) {
       <br />
       <Row>
         <Col>
-          <Form style={{ maxWidth: 450 }}>
+          <Form style={{ maxWidth: 450 }} onSubmit={handleSubmit}>
             <Form.Group>
               <motion.div
                 initial={{ opacity: 0 }}
