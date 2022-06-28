@@ -79,16 +79,46 @@ async function deleteEvent(req, res) {
 }
 
 async function editEvent(req, res) {
-  try {
-    const event = await Event.findOne({ _id: req.body._id });
-    event.title = req.body.title;
-    event.description = req.body.description;
-    event.location = req.body.location;
-    event.date = req.body.date;
-    event.save();
-    console.log(event, "<- this is event");
-    res.status(200).json({ event });
-  } catch (err) {
-    console.log(err, "<- this is err from editEvent controller");
+  // if a new cover photo was not selected:
+  if (!req.file) {
+    try {
+      const event = await Event.findOne({ _id: req.body._id });
+      event.title = req.body.title;
+      event.description = req.body.description;
+      event.location = req.body.location;
+      event.date = req.body.date;
+      event.save();
+      res.status(200).json({ event });
+    } catch (err) {
+      console.log(err, "<- this is err from editEvent controller");
+    }
+  }
+
+  // if a new cover photo WAS selected:
+  else {
+    try {
+      const filePath = `${uuidv4()}/${req.file.originalname}`;
+      const params = {
+        Bucket: process.env.BUCKET_NAME,
+        Key: filePath,
+        Body: req.file.buffer,
+      };
+      s3.upload(params, async function (err, data) {
+        console.log(req.user, "<- this is req.user");
+
+        console.log(err, "<- from aws");
+        const event = await Event.findOne({ _id: req.body._id });
+        event.title = req.body.title;
+        event.description = req.body.description;
+        event.location = req.body.location;
+        event.date = req.body.date;
+        event.photoUrl = data.Location;
+        event.save();
+        console.log(event, "<- this is event");
+        res.status(200).json({ event });
+      });
+    } catch (err) {
+      console.log(err, "<- this is err from editEvent controller");
+    }
   }
 }
