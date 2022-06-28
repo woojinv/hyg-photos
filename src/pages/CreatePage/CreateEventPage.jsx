@@ -70,6 +70,7 @@ export default function CreatePage({ user, handleLogout, handleSubmit }) {
   }
 
   function handleFileInput(e) {
+    console.log(e.target.files[0], "<- this is the file input");
     setSelectedFile(e.target.files[0]);
   }
 

@@ -35,8 +35,20 @@ export default function EditEventPage({ user, handleLogout, event }) {
     _id: event._id,
   });
 
+  const [selectedFile, setSelectedFile] = useState("");
+
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("photo", selectedFile);
+    for (let fieldName in newEvent) {
+      formData.append(fieldName, newEvent[fieldName]);
+    }
+
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ": " + pair[1]);
+    }
 
     try {
       setLoading(true);
@@ -63,6 +75,11 @@ export default function EditEventPage({ user, handleLogout, event }) {
     if (inputField === "location") {
       handleInput(e);
     }
+  }
+
+  function handleFileInput(e) {
+    console.log("hit handleFileInput in editEventpage");
+    setSelectedFile(e.target.files[0]);
   }
 
   const {
@@ -223,6 +240,15 @@ export default function EditEventPage({ user, handleLogout, event }) {
                 onChange={handleChange}
                 required
               />
+              <Form.Field>
+                <Form.Input
+                  type="file"
+                  name="photo"
+                  placeholder="upload a coverphoto"
+                  label="Cover Photo"
+                  onChange={handleFileInput}
+                />
+              </Form.Field>
               <Button
                 color="teal"
                 fluid

@@ -86,6 +86,7 @@ async function editEvent(req, res) {
     event.location = req.body.location;
     event.date = req.body.date;
     event.save();
+    console.log(event, "<- this is event");
     res.status(200).json({ event });
   } catch (err) {
     console.log(err, "<- this is err from editEvent controller");
