@@ -52,7 +52,7 @@ export default function EditEventPage({ user, handleLogout, event }) {
 
     try {
       setLoading(true);
-      const data = await eventAPI.editEvent(newEvent);
+      const data = await eventAPI.editEvent(formData);
       setNewEvent(data.event);
       setLoading(false);
       navigate(`/${data.event._id}`);

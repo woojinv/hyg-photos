@@ -38,13 +38,13 @@ export async function deleteEvent(eventId) {
 }
 
 export async function editEvent(newEvent) {
-  const res = await fetch(`${BASE_URL}/${newEvent._id}/edit`, {
+  const res = await fetch(`${BASE_URL}/${newEvent.get("_id")}/edit`, {
     method: "PUT",
     headers: {
-      "Content-type": "application/json",
+      // "Content-type": "application/json",
       Authorization: "Bearer " + tokenService.getToken(),
     },
-    body: JSON.stringify(newEvent),
+    body: newEvent,
   });
   if (res.ok) return res.json();
   throw new Error("Error editing an event. Please refresh and try again!");
