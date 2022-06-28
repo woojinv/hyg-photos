@@ -32,6 +32,7 @@ export default function AddPhotoForm({ handleAddPhoto, eventId }) {
         type="file"
         name="photo"
         onChange={handleFileInput}
+        multiple
       />
 
       <Button
