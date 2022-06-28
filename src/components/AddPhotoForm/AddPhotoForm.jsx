@@ -11,20 +11,15 @@ export default function AddPhotoForm({ handleAddPhoto, eventId }) {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    // console.log(selectedFiles, "<- this is selectedFiles");
     for (let i = 0; i < selectedFiles.length; i++) {
       formData.append("photo", selectedFiles[i]);
     }
     formData.append("event", eventId);
 
-    // for (let pair of formData.entries()) {
-    //   console.log(`${pair[0]}: ${typeof pair[1]}`, "<- this is formData");
-    // }
     handleAddPhoto(formData);
   }
 
   function handleFileInput(e) {
-    // console.log(e.target.files, "<- this is e.target.files");
     setSelectedFiles(e.target.files);
   }
 

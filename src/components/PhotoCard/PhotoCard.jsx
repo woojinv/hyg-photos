@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 export default function PhotoCard({ photo, user, deletePhoto }) {
   const [modalShow, setModalShow] = useState(false);
   function handleClick(e) {
+    e.stopPropagation();
     const photoId = e.target.attributes[1].value;
     deletePhoto(photoId);
   }

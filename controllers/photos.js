@@ -11,7 +11,6 @@ async function create(req, res) {
   console.log(req.body, "<- this is req.body");
   try {
     const event = await Event.findOne({ _id: req.body.event });
-    const photosArr = [];
     for (let i = 0; i < req.files.length; i++) {
       const filePath = `${uuidv4()}/${req.files[i].originalname}`;
       const params = {
@@ -29,11 +28,9 @@ async function create(req, res) {
 
         await photo.populate("user");
         await photo.populate("event");
-        photosArr.push(photo);
       });
     }
-
-    await res.status(201).json({ photosArr });
+    await res.status(201).json({});
   } catch (err) {
     console.log(err);
     res.json({ data: err });
