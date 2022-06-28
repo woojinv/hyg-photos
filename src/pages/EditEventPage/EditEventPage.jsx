@@ -46,9 +46,10 @@ export default function EditEventPage({ user, handleLogout, event }) {
       formData.append(fieldName, newEvent[fieldName]);
     }
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
-    }
+    // to see formData:
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ": " + pair[1]);
+    // }
 
     try {
       setLoading(true);
