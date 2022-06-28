@@ -6,18 +6,26 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export default function AddPhotoForm({ handleAddPhoto, eventId }) {
-  const [selectedFile, setSelectedFile] = useState("");
+  const [selectedFiles, setSelectedFiles] = useState({});
 
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("photo", selectedFile);
+    // console.log(selectedFiles, "<- this is selectedFiles");
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append("photo", selectedFiles[i]);
+    }
     formData.append("event", eventId);
+
+    // for (let pair of formData.entries()) {
+    //   console.log(`${pair[0]}: ${typeof pair[1]}`, "<- this is formData");
+    // }
     handleAddPhoto(formData);
   }
 
   function handleFileInput(e) {
-    setSelectedFile(e.target.files[0]);
+    // console.log(e.target.files, "<- this is e.target.files");
+    setSelectedFiles(e.target.files);
   }
 
   return (

@@ -6,7 +6,7 @@ const upload = multer();
 
 router.post(
   "/events/:eventId/photos",
-  upload.single("photo"),
+  upload.array("photo"),
   photosCtrl.create
 );
 router.get("/events/:eventId/photos", photosCtrl.index);
