@@ -30,6 +30,8 @@ export default function AddPhotoForm({ handleAddPhoto, eventId }) {
       className="mb-3"
       style={{ maxWidth: 450 }}
     >
+      <Form.Label>Refresh page after submitting to see new photos!</Form.Label>
+
       <Form.Control
         className="form-control"
         type="file"

@@ -7,8 +7,6 @@ const s3 = new S3();
 module.exports = { create, index, deletePhoto };
 
 async function create(req, res) {
-  console.log(req.files, "<- this is req.files");
-  console.log(req.body, "<- this is req.body");
   try {
     const event = await Event.findOne({ _id: req.body.event });
     for (let i = 0; i < req.files.length; i++) {
