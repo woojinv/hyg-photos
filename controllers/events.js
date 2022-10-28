@@ -42,6 +42,7 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
+  console.log('hit index');
   try {
     const events = await Event.find({})
       .sort({ date: "desc" })

@@ -15,7 +15,10 @@ export async function create(event) {
 }
 
 export async function getAll() {
+  console.log('hit getAll');
+  console.log(BASE_URL, '<<< BASE_URL');
   const res = await fetch(BASE_URL);
+  console.log(res, '<<< res');
   if (res.ok) return res.json();
   throw new Error("Error displaying events. Please refresh and try again!");
 }
