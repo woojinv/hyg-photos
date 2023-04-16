@@ -12,7 +12,7 @@ A place for Hebron Presbyterian Church's Youth Group Ministry to communally orga
 
 4. Log In to contribute photos to any event!
 
-[Get Started!](https://hyg-photos.herokuapp.com/)
+[Get Started!](https://hyg-photos.herokuapp.com/) (This application is no longer being maintained).
 
 <br />
 
